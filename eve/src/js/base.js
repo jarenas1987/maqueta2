@@ -19,3 +19,10 @@ $(document).ready(function() {//initialize select
 
  $('.carousel').carousel();
  $('.modal').modal();
+ $(document).ready(function(){
+      $('.carousel').carousel({
+            dist:0,
+            shift:10,
+            padding:20,
+      });
+    });
