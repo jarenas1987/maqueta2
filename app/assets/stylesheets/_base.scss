@@ -1,0 +1,74 @@
+//variables
+$nav-color: #005DAD;
+$collapse-color: #fff;
+$margin-top: 20px;
+.master{ //first page subtitle
+  font-family: 'BenchNine', sans-serif;
+  font-size: 58px;
+  margin-top: 150px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 160px;
+}
+.logo{
+  width: 130px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -150px;
+}
+.dropdown-button{
+  margin-right: 15px;
+  margin-top: 15px;
+}
+.dropdown-content{
+  @extend .dropdown-button ;
+}
+nav{ //espacios
+  background-color: $nav-color;
+  margin-bottom: 50px;
+  height: 90px;
+}
+span{
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
+}
+.bath{
+  width: 100px;
+  height: 100px;
+  margin-top: 150px;
+  text-align: center;
+  margin-bottom: -60px;
+}
+.living{
+  width: 104px;
+  height: 104px;
+  margin-top: 150px;
+  text-align: center;
+  margin-bottom: -60px;
+}
+.cocina{
+  @extend .bath;
+}
+.jardin{
+  @extend .bath;
+}
+.carousel{
+  margin-bottom: 10px;
+  margin-top: -60px;
+}
+.card-image{
+  img{
+    width: 100% !important;
+    height: 50% !important;
+  }
+}
+.card{
+  width: 300px !important;
+  height: auto !important;
+}
+:hover{
+  color: $nav-color;
+}
