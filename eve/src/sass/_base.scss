@@ -17,39 +17,37 @@ $margin-top: 20px;
   margin-right: auto;
   margin-top: -150px;
 }
-/*#test{
-  margin-left: 40px;
-}*/
-.user{
-  height: 80px;
-  width: 100px;
-  margin-left: 45px;
+.dropdown-button{
+  margin-right: 15px;
+  margin-top: 15px;
+}
+.dropdown-content{
+  @extend .dropdown-button ;
 }
 nav{ //espacios
   background-color: $nav-color;
   margin-bottom: 50px;
-  height: 60px;
+  height: 90px;
 }
-.button-collapse{
-  color: $collapse-color;
-  position: relative;
-  top: 10px;
-  left: 20px;
-}
-.left{
-  img{
-    width:75%;
-    height: 75%;
-    margin-top: $margin-top;
-    margin-bottom: $margin-top;
-  }
+span{
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
 }
 .bath{
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
+  margin-top: 150px;
+  text-align: center;
+  margin-bottom: -60px;
 }
 .living{
-  @extend .bath;
+  width: 104px;
+  height: 104px;
+  margin-top: 150px;
+  text-align: center;
+  margin-bottom: -60px;
 }
 .cocina{
   @extend .bath;
@@ -58,14 +56,19 @@ nav{ //espacios
   @extend .bath;
 }
 .carousel{
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+  margin-top: -60px;
 }
 .card-image{
   img{
-    width: 100%;
-    height: 50%;
+    width: 100% !important;
+    height: 50% !important;
   }
 }
-.hoverable{
+.card{
+  width: 300px !important;
+  height: auto !important;
+}
+:hover{
   color: $nav-color;
 }
