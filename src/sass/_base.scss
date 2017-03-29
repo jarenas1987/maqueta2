@@ -1,0 +1,59 @@
+//variables
+$nav-color: #005DAD;
+$collapse-color: #fff;
+$margin-top: 20px;
+.master{ //first page subtitle
+  font-family: 'BenchNine', sans-serif;
+  font-size: 58px;
+  margin-top: 150px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 160px;
+}
+.logo{
+  width: 130px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -150px;
+}
+/*#test{
+  margin-left: 40px;
+}*/
+.user{
+  height: 80px;
+  width: 100px;
+  margin-left: 45px;
+}
+header{ //espacios
+  background-color: $nav-color;
+  margin-bottom: 50px;
+  height: 60px;
+}
+.button-collapse{
+  color: $collapse-color;
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+.left{
+  img{
+    width:75%;
+    height: 75%;
+    margin-top: $margin-top;
+    margin-bottom: $margin-top;
+  }
+}
+.bath{
+  width: 80px;
+  height: 80px;
+}
+.living{
+  @extend .bath;
+}
+.cocina{
+  @extend .bath;
+}
+.jardin{
+  @extend .bath;
+}
