@@ -45,8 +45,8 @@ nav{ //espacios
   }
 }
 .bath{
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 .living{
   @extend .bath;
@@ -56,4 +56,7 @@ nav{ //espacios
 }
 .jardin{
   @extend .bath;
+}
+.carousel{
+  margin-bottom: 50px;
 }
