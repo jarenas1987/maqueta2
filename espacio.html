@@ -10,15 +10,45 @@
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css">
     <link rel="stylesheet" href="dist/css/main.min.css">
   </head>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!">one</a></li>
+          <li><a href="#!">two</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">three</a></li>
+        </ul>
+        <ul class="right">
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">add_shopping_cart</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <div class="container">
     <div class="row">
-      <div class="col s12 m12 center-align">
-        <img src="img/bano.jpg" class="circle bath" alt="">
-        <img src="img/living2.jpg" class="circle living" alt="">
-        <img src="img/cocina.jpg" class="circle cocina" alt="">
-        <img src="img/jardin.jpg" class="circle jardin" alt="">
+      <div class="col s12 m12 center-align ">
+        <div class="col s3 m3">
+          <a href="#"><img src="img/bano.jpg" class="circle bath" alt="">
+            <span>Baños</span>
+          </a>
+        </div>
+        <div class="col s3 m3">
+          <a href="#"><img src="img/living2.jpg" class="circle living" alt="">
+            <span>Living</span>
+          </a>
+        </div>
+        <div class="col s3 m3">
+          <a href="#"><img src="img/cocina.jpg" class="circle cocina" alt="">
+            <span>Cocina</span>
+          </a>
+        </div>
+        <div class="col s3 m3">
+          <a href="#"><img src="img/jardin.jpg" class="circle jardin" alt="">
+            <span>Exteriores</span>
+          </a>
+        </div>
       </div>
-
     </div>
 
   </div>
