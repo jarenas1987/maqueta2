@@ -21,7 +21,7 @@ $(document).ready(function() {//initialize select
  $('.modal').modal();
  $(document).ready(function(){
       $('.carousel').carousel({
-            dist:0,
+            dist:100,
             shift:10,
             padding:20,
       });

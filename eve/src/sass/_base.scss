@@ -36,18 +36,14 @@ span{
   color: #fff;
 }
 .bath{
-  width: 100px;
-  height: 100px;
-  margin-top: 150px;
-  text-align: center;
-  margin-bottom: -60px;
-}
-.living{
   width: 104px;
   height: 104px;
   margin-top: 150px;
   text-align: center;
   margin-bottom: -60px;
+}
+.living{
+  @extend .bath;
 }
 .cocina{
   @extend .bath;
