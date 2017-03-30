@@ -15,63 +15,39 @@ $margin-top: 20px;
   margin-right: 15px;
   margin-top: 35px;
 }
-.left{
 
-  margin-left: 15px;
-}
 .dropdown-content{
   margin-top: 35px;
   width: 180px;
 }
 .btn{
   background-color: $nav-color;
+  &:hover{
+    background-color: #fff;
+  }
 }
 nav{ //espacios
   background-color: $nav-color;
   margin-bottom: 50px;
   height: 60px;
 }
-p{
-  font-size: 16px;
-  font-weight: bold;
-  display: inline-block;
-  color: #000;
-  position: relative;
-  top: 50px;
-}
-.last{
-  top: 50px;
-}
-.bath{
-  width: 104px;
-  height: 104px;
-  margin-top: 150px;
-  text-align: center;
-  margin-bottom: -60px;
-}
-.living{
-  @extend .bath;
-}
-.cocina{
-  @extend .bath;
-}
-.jardin{
-  @extend .bath;
-}
-.carousel{
-  margin-bottom: 10px;
-  margin-top: -60px;
-}
-.card-image{
-  img{
-    width: 100% !important;
-    height: 50% !important;
-  }
-}
-.card{
-  width: 300px !important;
-  height: auto !important;
-}
+
 :hover{
   color: $nav-color;
+}
+//___________________________test______//
+img{
+  width: 95px;
+  height: 95px;
+  margin-left: -185px;
+}
+span{
+  margin-left: -85px;
+  position:relative;
+  top:20px;
+  text-align: center;
+  display: inline;
+}
+h3{
+  margin-left: -120px;
 }
