@@ -9,167 +9,102 @@
         </li>
       </ul>
       <div class="nav-wrapper">
-        <ul id="dropdown1" class="dropdown-content">
+        <ul id="dropdown1" class="dropdown-content ">
           <li><a href="#!">one</a></li>
           <li><a href="#!">two</a></li>
           <li><a href="#!">three</a></li>
         </ul>
         <ul class="right">
-          <li>
-            <a class="dropdown-button waves-effect btn" href="#!" data-activates="dropdown1"><i class="material-icons">add_shopping_cart</i></a>
-          </li>
+          <li><a class="dropdown-button waves-effect btn" href="#!" data-activates="dropdown1"><i class="material-icons">add_shopping_cart</i></a></li>
         </ul>
       </div>
     </nav>
   </header>
   <div class="container">
     <div class="row">
-      <div class="col s12 m12 center-align ">
+      <h3>Pisos</h3>
+
         <div class="col s3 m3">
           <a href="#">
-            <%= image_tag("bano.jpg", class: "circle bath") %>
-            <p>Baños</p>
+            <%= image_tag('ceramica.jpg', class: "img-responsive hoverable circle") %>
+            <span>Ceramica</span>
           </a>
         </div>
         <div class="col s3 m3">
           <a href="#">
-            <%= image_tag("living2.jpg", class: "circle living") %>
-            <p>Living</p>
+            <%= image_tag('flotante.png', class: "img-responsive hoverable circle") %>
+            <span>Flotante</span>
+          </a>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col s3 m3">
+          <a href="#">
+            <%= image_tag('madera.jpg', class: "img-responsive hoverable circle") %>
+            <span>Madera</span>
           </a>
         </div>
         <div class="col s3 m3">
           <a href="#">
-            <%= image_tag("cocina.jpg", class: "circle cocina") %>
-            <p>Cocina</p>
+            <%= image_tag('porcelanato.jpg', class: "img-responsive hoverable circle") %>
+            <span>Porcelanato</span>
+          </a>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col s3 m3">
+          <a href="#">
+            <%= image_tag('vinilico.jpg', class: "img-responsive hoverable circle") %>
+            <span>Vinílico</span>
           </a>
         </div>
         <div class="col s3 m3">
           <a href="#">
-            <%= image_tag("jardin.jpg", class: "circle jardin") %>
-            <p class="last">Exteriores</p class="last">
+            <%= image_tag('pastelones.jpg', class: "img-responsive hoverable circle") %>
+            <span>Exteriores</span>
+          </a>
+        </div>
+      </div>
+
+    <div class="row">
+        <h3>Muros</h3>
+
+        <div class="col s3 m3">
+          <a href="#">
+            <%= image_tag('muros.jpg', class: "img-responsive hoverable circle") %>
+            <span>Cerámica</span>
+          </a>
+        </div>
+        <div class="col s3 m3">
+          <a href="#">
+            <%= image_tag('papel.jpg', class: "img-responsive hoverable circle") %>
+            <span>Papel Mural</span>
+          </a>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col s3 m3">
+          <a href="#">
+            <%= image_tag('living.jpg', class: "img-responsive hoverable circle") %>
+            <span>Pinturas</span>
+          </a>
+        </div>
+        <div class="col s3 m3">
+          <a href="#">
+            <%= image_tag('foto.jpg', class: "img-responsive hoverable circle") %>
+            <span>Foto Mural</span>
           </a>
         </div>
       </div>
     </div>
-    <div class="carousel"> <!--muros-->
-      <a class="carousel-item" href="#one!">
-        <div class="col s12 m12 hoverable">
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="img-responsive" src="<%= image_path('Logo.png') %>">
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#one!">
-        <div class="col s12 m12 hoverable">
-          <div class="card">
-            <div class="card-image">
-              <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-            </div>
-          </div>
-        </div>
-      </a>
-    <a class="carousel-item" href="#two!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2677849_01">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a class="carousel-item" href="#three!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2151855_1">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a class="carousel-item" href="#four!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2058685_01">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a class="carousel-item" href="#five!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2635798_01">
-          </div>
-        </div>
-      </div>
-    </a>
+  
+  <div class="container">
+    <div class="col s12 m12">
+
+    </div>
   </div>
 
-    <div class="carousel"> <!--pisos-->
-      <a class="carousel-item" href="#one!">
-        <div class="col s12 m12 hoverable">
-          <div class="card">
-            <div class="card-image">
-              <img class="img-responsive" src="<%= image_path('Logo.png') %>">
-            </div>
-          </div>
-        </div>
-      </a>
-    <a class="carousel-item" href="#one!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-              <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2287226_17">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a class="carousel-item" href="#two!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2667363_01">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a class="carousel-item" href="#three!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2766590_01">
-          </div>
-        </div>
-      </div>
-      </a>
-    <a class="carousel-item" href="#four!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-            <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2124432_1">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a class="carousel-item" href="#five!">
-      <div class="col s12 m12 hoverable">
-        <div class="card">
-          <div class="card-image">
-              <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2766590_01">
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-
-
-
-
-
-
-  </div>
 </body>

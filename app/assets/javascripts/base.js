@@ -1,6 +1,6 @@
 //dropdown menu
 $( document ).ready(function(){
-    $(".dropdown-button").dropdown({gutter: -15, constrainWidth: false});
+    $(".dropdown-button").dropdown();
 });
 
  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
@@ -24,3 +24,6 @@ $(document).ready(function() {//initialize select
      $(document).ready(function(){
        $('.materialboxed').materialbox();
      });
+     $(document).ready(function(){
+         $('.slider').slider();
+       });
