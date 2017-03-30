@@ -71,31 +71,31 @@
         <h3>Muros</h3>
 
         <div class="col s3 m3">
-          <a href="#">
+          <%= link_to(products_by_category_path('scat102691')) do %>
             <%= image_tag('muros.jpg', class: "img-responsive hoverable circle") %>
             <span>Cerámica</span>
-          </a>
+          <% end -%>
         </div>
         <div class="col s3 m3">
-          <a href="#">
+          <%= link_to(products_by_category_path('scat358517')) do %>
             <%= image_tag('papel.jpg', class: "img-responsive hoverable circle") %>
             <span>Papel Mural</span>
-          </a>
+          <% end -%>
         </div>
       </div>
 
     <div class="row">
         <div class="col s3 m3">
-          <a href="#">
+          <%= link_to(products_by_category_path('scat963904')) do %>
             <%= image_tag('living.jpg', class: "img-responsive hoverable circle") %>
             <span>Pinturas</span>
-          </a>
+          <% end -%>
         </div>
         <div class="col s3 m3">
-          <a href="#">
+          <%= link_to(products_by_category_path('scat358515')) do %>
             <%= image_tag('foto.jpg', class: "img-responsive hoverable circle") %>
             <span>Foto Mural</span>
-          </a>
+          <% end -%>
         </div>
       </div>
     </div>
