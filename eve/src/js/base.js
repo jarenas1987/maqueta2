@@ -24,3 +24,6 @@ $(document).ready(function() {//initialize select
      $(document).ready(function(){
        $('.materialboxed').materialbox();
      });
+     $(document).ready(function(){
+         $('.slider').slider();
+       });
