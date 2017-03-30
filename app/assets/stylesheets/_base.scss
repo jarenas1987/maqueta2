@@ -5,49 +5,53 @@ $margin-top: 20px;
 .master{ //first page subtitle
   font-family: 'BenchNine', sans-serif;
   font-size: 58px;
-  margin-top: 150px;
+  margin-top: 350px;
   text-align: center;
   color: #000;
+  margin-left: 80px;
   margin-bottom: 160px;
-}
-.logo{
-  width: 130px;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -150px;
 }
 .dropdown-button{
   margin-right: 15px;
-  margin-top: 15px;
+  margin-top: 35px;
+}
+.left{
+
+  margin-left: 15px;
 }
 .dropdown-content{
   @extend .dropdown-button ;
 }
+.btn{
+  background-color: $nav-color;
+}
 nav{ //espacios
   background-color: $nav-color;
   margin-bottom: 50px;
-  height: 90px;
+  height: 60px;
 }
-span{
+p{
   font-size: 16px;
   font-weight: bold;
   display: inline-block;
-  color: #fff;
+  color: #000;
+  position: relative;
+  top: 80px;
+  left: -80px;
+}
+.last{
+  @extend p;
+  left: -90px !important;
 }
 .bath{
-  width: 100px;
-  height: 100px;
-  margin-top: 150px;
-  text-align: center;
-  margin-bottom: -60px;
-}
-.living{
   width: 104px;
   height: 104px;
   margin-top: 150px;
   text-align: center;
   margin-bottom: -60px;
+}
+.living{
+  @extend .bath;
 }
 .cocina{
   @extend .bath;
