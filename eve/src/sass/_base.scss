@@ -20,7 +20,8 @@ $margin-top: 20px;
   margin-left: 15px;
 }
 .dropdown-content{
-  @extend .dropdown-button ;
+  margin-top: 35px;
+  width: 180px;
 }
 .btn{
   background-color: $nav-color;
@@ -36,12 +37,10 @@ p{
   display: inline-block;
   color: #000;
   position: relative;
-  top: 80px;
-  left: -80px;
+  top: 50px;
 }
 .last{
-  @extend p;
-  left: -90px !important;
+  top: 50px;
 }
 .bath{
   width: 104px;
