@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+# Ignorar archivo de byebug
+/.byebug_history
