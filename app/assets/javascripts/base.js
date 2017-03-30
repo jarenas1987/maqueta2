@@ -1,6 +1,6 @@
 //dropdown menu
 $( document ).ready(function(){
-    $(".dropdown-button").dropdown();
+    $(".dropdown-button").dropdown({gutter: -15, constrainWidth: false});
 });
 
  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
