@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require materialize.min
 //= require base
-//= require all

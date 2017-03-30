@@ -1,6 +1,13 @@
 <body background="<%= image_path('mt2.jpg') %>" class="img-responsive">
     <header>
     <nav>
+      <ul class="left">
+        <li>
+          <%= link_to(root_path, class: 'waves-effect btn') do %>
+            <i class="material-icons">power_settings_new</i>
+          <% end %>
+        </li>
+      </ul>
       <div class="nav-wrapper">
         <ul id="dropdown1" class="dropdown-content">
           <li><a href="#!">one</a></li>
@@ -9,7 +16,7 @@
           <li><a href="#!">three</a></li>
         </ul>
         <ul class="right">
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">add_shopping_cart</i></a></li>
+          <li><a class="dropdown-button waves-effect btn" href="#!" data-activates="dropdown1"><i class="material-icons">add_shopping_cart</i></a></li>
         </ul>
       </div>
     </nav>
@@ -20,25 +27,25 @@
         <div class="col s3 m3">
           <a href="#">
             <%= image_tag("bano.jpg", class: "circle bath") %>
-            <span>Baños</span>
+            <p>Baños</p>
           </a>
         </div>
         <div class="col s3 m3">
           <a href="#">
             <%= image_tag("living2.jpg", class: "circle living") %>
-            <span>Living</span>
+            <p>Living</p>
           </a>
         </div>
         <div class="col s3 m3">
           <a href="#">
             <%= image_tag("cocina.jpg", class: "circle cocina") %>
-            <span>Cocina</span>
+            <p>Cocina</p>
           </a>
         </div>
         <div class="col s3 m3">
           <a href="#">
             <%= image_tag("jardin.jpg", class: "circle jardin") %>
-            <span>Exteriores</span>
+            <p class="last">Exteriores</p class="last">
           </a>
         </div>
       </div>
