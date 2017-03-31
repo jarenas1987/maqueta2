@@ -15,6 +15,6 @@
  *= require benchnine
  *= require owl.carousel.min
  *= require owl.theme.default.min
- *= require main.min
+ *= require base
  
  */
