@@ -27,3 +27,26 @@ $(document).ready(function() {//initialize select
      $(document).ready(function(){
          $('.slider').slider();
        });
+
+$('a.category-link').on('click', function(e){
+  e.preventDefault();
+  var url = this.href;
+
+  $.ajax({
+    url: url,
+    method: "get",
+    beforeSend: function()
+    {
+    }
+  }).done(function(data, textStatus, jqXHR) {
+      console.log(data);
+
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    var error_json = jqXHR.responseJSON;
+    console.log(error_json.msg);
+
+  }).always(function(data, textStatus, errorThrown) {
+      
+  }); 
+
+});
