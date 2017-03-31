@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Para el uso de API's
 gem "http"
 
+# Prawn for PDF generation
+gem 'prawn'
+gem 'prawn-table'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
