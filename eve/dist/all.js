@@ -15,8 +15,8 @@ $(document).ready(function(){
   $(".owl-carousel").owlCarousel();
 });
 
-$("#scale-demo").on("click", function(e){
-  $("#add").removeClass("hide");
+$(".btn-floating").on("click", function(e){
+  $(".fav").removeClass("hide");
 })
 
 /*!
