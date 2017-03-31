@@ -22,6 +22,7 @@ class MainController < ApplicationController
 			end		
 		else
 			# No se hay id de categoria.
+			render json: {msg: "El servidor no recibió el id de la categoria."}, status: :unprocessable_entity
 		end
 	end
 end
