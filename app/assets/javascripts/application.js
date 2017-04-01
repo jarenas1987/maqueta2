@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-migrate-1.3.0.min
 //= require turbolinks
 //= require materialize.min
-//= require owl.carousel.min
+//= require slick.min
 //= require base

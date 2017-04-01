@@ -25,13 +25,13 @@
       <!-- MUROS -->
       <div class="row">
         <div class="col s4 m4 l4">
-          <%= link_to(products_by_category_path('scat358517'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:muro], 'scat358517'), class: 'category-link') do %>
             <%= image_tag('papel.jpg', class: 'circle hoverable') %>
             <span>Papel</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4">
-          <%= link_to(products_by_category_path('scat102690'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:muro], 'scat102690'), class: 'category-link') do %>
             <%= image_tag('muros.jpg', class: 'circle hoverable', id: 'dos') %>
             <span class="title">Ceramica</span>
           <% end -%>
@@ -39,13 +39,13 @@
       </div><!--row-->
       <div class="row">
         <div class="col s4 m4 l4 segundo">
-          <%= link_to(products_by_category_path('scat963904'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:muro], 'scat963904'), class: 'category-link') do %>
             <%= image_tag('living2.jpg', class: 'circle hoverable') %>
             <span>Pintura</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4 segundo">
-          <%= link_to(products_by_category_path('scat963248'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:muro], 'scat963248'), class: 'category-link') do %>
             <%= image_tag('foto.jpg', class: 'circle hoverable', id: 'dos') %>
             <span class="title">Decomural</span>
           <% end -%>
@@ -57,13 +57,13 @@
 
       <div class="row">
         <div class="col s4 m4 l4">
-          <%= link_to(products_by_category_path('scat963885'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:piso], 'scat963885'), class: 'category-link') do %>
             <%= image_tag('ceramica.jpg', class: 'circle hoverable') %>
             <span>ceramica</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4">
-          <%= link_to(products_by_category_path('scat552404'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:piso], 'scat552404'), class: 'category-link') do %>
             <%= image_tag('flotante.png', class: 'circle hoverable', id: 'dos') %>
             <span class="title">Flotante</span>
           <% end -%>
@@ -71,13 +71,13 @@
       </div><!--row-->
       <div class="row">
         <div class="col s4 m4 l4 segundo">
-          <%= link_to(products_by_category_path('scat552357'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:piso], 'scat552357'), class: 'category-link') do %>
             <%= image_tag('madera.jpg', class: 'circle hoverable') %>
             <span>Madera</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4 segundo">
-          <%= link_to(products_by_category_path('scat991120'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:piso], 'scat991120'), class: 'category-link') do %>
             <%= image_tag('porcelanato.jpg', class: 'circle hoverable', id: 'dos') %>
             <span class="title">Porcelanato</span>
           <% end -%>
@@ -85,13 +85,13 @@
       </div>
       <div class="row">
         <div class="col s4 m4 l4 segundo">
-          <%= link_to(products_by_category_path('cat2880013'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:piso], 'cat2880013'), class: 'category-link') do %>
             <%= image_tag('vinilico.jpg', class: 'circle hoverable') %>
             <span>Vinilico</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4 segundo">
-          <%= link_to(products_by_category_path('scat880433'), class: 'category-link') do %>
+          <%= link_to(products_by_category_path(categories_types[:piso], 'scat880433'), class: 'category-link') do %>
             <%= image_tag('pastelones.jpg', class: 'circle hoverable', id: 'dos') %>
             <span class="title">Exterior</span>
           <% end -%>
@@ -100,275 +100,19 @@
     </div><!--container botonera-->
   </div><!--left-sidebar-->
 
-<div class="main-container">
-  <!-- CARRUSEL MUROS-->
-  <div class="owl-carousel responsiveBaseElement">
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-  </div><!--CARRUSEL PISOS -->
+  <div class="main-container">
 
-  <!--CARRUSEL MUROS -->
-  <div class="owl-carousel">
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-    <div class="col s4 m4">
-      <div class="card medium hoverable">
-        <div class="card-image">
-          <img class="img-responsive" src="http://sodimac.scene7.com/is/image/SodimacCL/2867818_01">
-        </div>
-        <li class="divider"></li>
-        <div class="card-content">
-          <p>Descripcion:</p>
-          <p>Rendimiento por caja:</p>
-          <p>Precio:</p>
-          <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-            <i class="material-icons">visibility</i>
-          </a>
-          <!-- Scaled out -->
-          <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-            <i class="material-icons">favorite</i>
-          </a>
-        </div>
-      </div>
-    </div><!--tarjeta-->
-  </div><!-- carrusel muros-->
- </div><!--main container ---->
+    <!--CARRUSEL MUROS -->
+    <div class="slick-carousel" id="muros_carousel">
+    </div>
+    <!-- CARRUSEL MUROS-->
+
+    <!-- CARRUSEL PISOS -->
+    <div class="slick-carousel" id="pisos_carousel">
+    </div>
+    <!--CARRUSEL PISOS -->
+
+  </div><!--main container -->
 </div><!--fondo-->
 
 <footer></footer>

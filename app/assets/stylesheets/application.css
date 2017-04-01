@@ -13,8 +13,8 @@
  *= require materialize.min
  *= require material_icons
  *= require benchnine
- *= require owl.carousel.min
- *= require owl.theme.default.min
+ *= require slick
+ *= require slick-theme
  *= require base
  
  */

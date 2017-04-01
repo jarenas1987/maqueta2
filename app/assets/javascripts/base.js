@@ -1,3 +1,10 @@
+var slick_carousel = $('div.slick-carousel');
+var slick_carousel_config = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1
+  };
+
 //dropdown menu
 $( document ).ready(function(){
   $(".dropdown-button").dropdown({
@@ -10,28 +17,18 @@ $( document ).ready(function(){
     alignment: 'right', // Displays dropdown with edge aligned to the left of button
     stopPropagation: false // Stops event propagation
   });
+
+  // Inicializar slick carrusel
+  slick_carousel.slick(slick_carousel_config);
 });
-
-
 
 $(document).ready(function(){
   $('.materialboxed').materialbox();
 });
 
-$(document).ready(function(){
-  $(".owl-carousel").owlCarousel({
-    margin:10,
-    loop:true,
-    autoWidth:true,
-    items:4
-
-  });
-});
-
 $(".btn-floating").on("click", function(e){//funcion del boton ver
   $(".fav").removeClass("hide");
 })
-
 
 $('a.category-link').on('click', function(e){
   e.preventDefault();
@@ -45,6 +42,24 @@ $('a.category-link').on('click', function(e){
     }
   }).done(function(data, textStatus, jqXHR) {
       console.log(data);
+      var carousel;
+
+      if (data.carousel_type == 'piso')
+        carousel = $('div#pisos_carousel');
+      else if(data.carousel_type == 'muro')
+        carousel = $('div#muros_carousel');
+      else
+        carousel = null;
+
+      if (carousel !== null) {
+        // Quitar todos los elementos del carrusel
+        carousel.slick('removeSlide', null, null, true);
+
+        // Luego agregarlos.
+        for (var i = 0; i < data.carousel_items.length; i++) {
+          carousel.slick('slickAdd', data.carousel_items[i]);
+        }
+      }
 
   }).fail(function(jqXHR, textStatus, errorThrown) {
     var error_json = jqXHR.responseJSON;
