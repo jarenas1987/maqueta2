@@ -134,3 +134,8 @@ span{
   font-size: 20px;
   font-family: "miso"
 }
+
+.disable_link{
+  pointer-events: none;
+  cursor: default;
+}

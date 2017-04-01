@@ -39,6 +39,7 @@ $('a.category-link').on('click', function(e){
     method: "get",
     beforeSend: function()
     {
+      $('a.category-link').toggleClass('disable_link');
     }
   }).done(function(data, textStatus, jqXHR) {
       console.log(data);
@@ -66,6 +67,7 @@ $('a.category-link').on('click', function(e){
     console.log(error_json.msg);
 
   }).always(function(data, textStatus, errorThrown) {
+    $('a.category-link').toggleClass('disable_link');
       
   }); 
 
