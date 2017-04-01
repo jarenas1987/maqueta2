@@ -3,9 +3,9 @@ class Product
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :nombre, :sku, :img_url
+  attr_accessor :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio
 
-  validates_presence_of :nombre, :sku, :img_url
+  validates_presence_of :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio
 
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -27,5 +27,9 @@ class Product
 
   def img_url=(new_img_url)
     @img_url = new_img_url.strip
+  end
+
+  def descripcion=(new_descripcion)
+    @descripcion = new_descripcion.strip if new_descripcion.present?
   end
 end
