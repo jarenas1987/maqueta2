@@ -44,10 +44,10 @@ class MainController < ApplicationController
 	end
 
 	def carrito_add
-		if !(params[:muro].nil? && params[:piso].nil?)
-			render json: {}
+		if !params[:muro].nil? && !params[:piso].nil?
+			render json: {}							
 		else
-			render json: {msg: "Tiene que seleccionar un piso y un muro."}, status: :unprocessable_entity
+			render json: {msg: "Tiene que seleccionar un muro y un piso."}, status: :unprocessable_entity
 		end
 	end
 

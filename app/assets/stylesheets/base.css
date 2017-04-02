@@ -144,3 +144,21 @@ span{
   font-weight: bold;
   color: black;
 }
+input[type="radio"]+label:before{
+  border: none !important;
+  visibility: hidden;
+}
+input[type="radio"]+label:after{
+  border: none !important;
+  visibility: hidden;
+}
+label.like-label{
+  width: 40px !important;
+  height: 40px !important;
+}
+label.like-label > i{
+  margin-left: -35px;
+}
+input[type="radio"]:checked + label > i {
+  color: red;
+}

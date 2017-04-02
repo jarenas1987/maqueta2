@@ -15,11 +15,10 @@
         </a>
         
         <%= f.radio_button(:sku, item.sku, id: type + '_' + index.to_s) %>
-        <%= f.label(:bla, '', for: type + '_' + index.to_s) %>
-
-        <a id="add" href="#!" class="btn-floating btn-small scale-transition fav right">
+        <%= f.label(:bla, '', for: type + '_' + index.to_s, class: "btn-floating btn-small scale-transition fav right like-label") do %>
           <i class="material-icons">favorite</i>
-        </a>
+        <% end -%>
+        
       </div>
     </div>
   </div>
