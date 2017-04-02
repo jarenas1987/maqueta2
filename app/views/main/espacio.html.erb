@@ -1,10 +1,19 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <%= form_for(carrito, url: carito_send_path, html: {id: 'carrito_form', format: :json}) do |f| %>
+    <div id="carrito_container">
+      
+    </div>
+    <li class="divider"></li>
+    <li data-total="<%= carrito.total %>" id="carrito-precio-total">
+      <span>Total: $<%= carrito.total %></span>
+    </li>
+    <li>
+      <%= f.submit("Enviar", class: 'btn') %>
+    </li>
+  <% end -%>
 </ul>
+
 <div class="navbar-fixed"><!--navbar-->
   <nav>
     <div class="nav-wrapper">

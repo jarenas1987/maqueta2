@@ -35,6 +35,7 @@ $('a.category-link').on('click', function(e){
   e.preventDefault();
   var url = this.href;
   var span = $(this).find('span');
+  var error_json = null;
   
   // Quitar nombre de clase a todos los span para dejarlos deseleccionados.
   $(this).parents('div.container').find('span').removeClass('text_link_selected');
@@ -70,11 +71,11 @@ $('a.category-link').on('click', function(e){
       }
 
   }).fail(function(jqXHR, textStatus, errorThrown) {
-    var error_json = jqXHR.responseJSON;
-    console.log(error_json.msg);
+    error_json = jqXHR.responseJSON;
 
   }).always(function(data, textStatus, errorThrown) {
     $('a.category-link').toggleClass('disable_link');
+    console.log(error_json);
       
   }); 
 });
@@ -93,6 +94,8 @@ $('form#piso_muro_form').on('submit', function(event){
     }
   }).done(function(data, textStatus, jqXHR) {
     // Aqui se debe agregar el par de productos gustados al carrito.
+    console.log(data);
+    addItemToCarrito(data);
 
   }).fail(function(jqXHR, textStatus, errorThrown) {
     var error_json = jqXHR.responseJSON;
@@ -101,3 +104,57 @@ $('form#piso_muro_form').on('submit', function(event){
 
   });
 });
+
+// Envio de formulario del carrito de pisos y muros gustados.
+$('form#carrito_form').on('submit', function(event){
+  event.preventDefault();
+  data = $(event.target).serialize();
+
+  $.ajax({
+    url: event.target.action,
+    data: data,
+    method: event.target.method,
+    beforeSend: function()
+    {
+    }
+  }).done(function(data, textStatus, jqXHR) {
+    // Aqui se debe agregar el par de productos gustados al carrito.
+    console.log(data);
+
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    var error_json = jqXHR.responseJSON;
+    console.log(error_json.msg);
+  }).always(function(data, textStatus, errorThrown) {
+
+  });
+});
+
+// Funcion que revisa si existe un par de productos gustados en el carrito antes de agregar un nuevo par para evitar duplicados.
+function addItemToCarrito(carrito_data)
+{
+  var carrito_container = $('div#carrito_container');
+  var carrito_items = carrito_container.children();
+  var add_item = true;
+
+  for (var i = 0; i < carrito_items.length; i++) {
+    var data_set = carrito_items[i].dataset;
+    if (data_set.muroSku == carrito_data.muro_sku && data_set.pisoSku == carrito_data.piso_sku){
+      add_item = false;
+      break;
+    }
+  }
+
+  if (add_item) {
+    // Si no existe el par de productos en el carrito, se agrega.
+    carrito_container.append(carrito_data.carrito_item);
+
+    // Calcular el precio total de los items del carrito.
+    // Se toma el atributo 'total' y se le suma el precio del par de productos gustado entrante.
+    var total_element = $('li#carrito-precio-total');
+    var precio_total_carrito = total_element.data().total;
+    precio_total_carrito += carrito_data.precio_total_item;
+
+    total_element.data('total', precio_total_carrito);
+    total_element.find('span').html("Total: $" + precio_total_carrito);
+  }
+}

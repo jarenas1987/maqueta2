@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
-  get '/espacio', to: 'main#espacio', as: 'espacio'
-  get '/espacio/(:category_type)/(:category_id)', to: 'main#products_by_category', as: 'products_by_category'
-  post '/espacio/carrito_add', to: 'main#carrito_add', as: 'carrito_add'
+  scope '/espacio' do
+    get '/', to: 'main#espacio', as: 'espacio'
+    get '/(:category_type)/(:category_id)', to: 'main#products_by_category', as: 'products_by_category'
+    post '/carrito_add', to: 'main#carrito_add', as: 'carrito_add'
+    post '/carrito_send', to: 'main#carrito_send', as: 'carito_send'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -9,7 +9,10 @@ class MainController < ApplicationController
 	end
 
 	def espacio
-		render action: :espacio, locals: {categories_types: CATEGORIES_TYPES}
+		carrito = Carrito.new
+		# carrito.items << ProductPair.new(piso: Product.new(sku: "1"), muro: Product.new(sku: "2"))
+		# carrito.items << ProductPair.new(piso: Product.new(sku: "3"), muro: Product.new(sku: "4"))
+		render action: :espacio, locals: {categories_types: CATEGORIES_TYPES, carrito: carrito}
 	end
 
 	def products_by_category
@@ -44,11 +47,29 @@ class MainController < ApplicationController
 	end
 
 	def carrito_add
-		if !params[:muro].nil? && !params[:piso].nil?
-			render json: {}							
+		if !params[:piso].nil? && !params[:muro].nil? && !params[:muro][:sku].nil? && !params[:piso][:sku].nil?
+			carrito_obj = Carrito.new
+			product_pair_obj = ProductPair.new(
+				piso: Product.new(params[:piso]),
+				muro: Product.new(params[:muro])
+			)
+			carrito_obj.items << product_pair_obj
+			carrito_obj.calculateTotal
+			
+			render json: {
+				carrito_item: render_to_string(partial: 'carrito_form', formats: [:html], layout: false, locals: {carrito: carrito_obj}),
+				piso_sku: product_pair_obj.piso.sku,
+				muro_sku: product_pair_obj.muro.sku,
+				precio_total_item: carrito_obj.total
+			}
+
 		else
 			render json: {msg: "Tiene que seleccionar un muro y un piso."}, status: :unprocessable_entity
 		end
+	end
+
+	def carrito_send
+		byebug
 	end
 
 end

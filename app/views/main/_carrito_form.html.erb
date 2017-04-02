@@ -1,0 +1,9 @@
+<% carrito.items.each do |item| %>
+  <%= fields_for("items[]", item) do |ff| %>
+    <li data-piso-sku="<%= item.piso.sku %>" data-muro-sku="<%= item.muro.sku %>">
+      <%= ff.hidden_field(:piso, value: item.piso.sku) %>
+      <%= ff.hidden_field(:muro, value: item.muro.sku) %>
+      <a href="#!">Piso sku: <%= item.piso.sku %> | Muro sku: <%= item.muro.sku %></a>
+    </li>
+  <% end -%>
+<% end -%>
