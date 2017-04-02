@@ -33,6 +33,12 @@ $(".btn-floating").on("click", function(e){//funcion del boton ver
 $('a.category-link').on('click', function(e){
   e.preventDefault();
   var url = this.href;
+  var span = $(this).find('span');
+  
+  // Quitar nombre de clase a todos los span para dejarlos deseleccionados.
+  $(this).parents('div.container').find('span').removeClass('text_link_selected');
+  // Agregar clase al span para dejar seleccionado el link.
+  span.addClass('text_link_selected');
 
   $.ajax({
     url: url,
