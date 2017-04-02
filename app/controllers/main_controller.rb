@@ -55,7 +55,7 @@ class MainController < ApplicationController
 			)
 			carrito_obj.items << product_pair_obj
 			carrito_obj.calculateTotal
-			
+
 			render json: {
 				carrito_item: render_to_string(partial: 'carrito_form', formats: [:html], layout: false, locals: {carrito: carrito_obj}),
 				piso_sku: product_pair_obj.piso.sku,
@@ -69,7 +69,13 @@ class MainController < ApplicationController
 	end
 
 	def carrito_send
-		byebug
+		if !params[:items].nil?
+			# Enviar email con el pdf?...
+
+			render json: {}
+		else
+			render json: {msg: "El carrito de compras esta vacio."}, status: :unprocessable_entity
+		end
 	end
 
 end
