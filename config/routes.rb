@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/espacio', to: 'main#espacio', as: 'espacio'
   get '/espacio/(:category_type)/(:category_id)', to: 'main#products_by_category', as: 'products_by_category'
+  post '/espacio/carrito_add', to: 'main#carrito_add', as: 'carrito_add'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -19,8 +19,8 @@ class MainController < ApplicationController
 
 				if !items.nil?
 					html_item_arr = []
-					items.each do |item|
-						html_item_arr << render_to_string(partial: 'carousel_items', formats: [:html], layout: false, locals: {item: item})
+					items.each_with_index do |item, index|
+						html_item_arr << render_to_string(partial: 'carousel_items', formats: [:html], layout: false, locals: {item: item, type: params[:category_type], index: index})
 					end
 
 					render json: {
@@ -40,6 +40,14 @@ class MainController < ApplicationController
 		else
 			# No hay tipo de categoria.
 			render json: {msg: "El servidor no recibió el tipo de la categoria."}, status: :unprocessable_entity
+		end
+	end
+
+	def carrito_add
+		if !(params[:muro].nil? && params[:piso].nil?)
+			render json: {}
+		else
+			render json: {msg: "Tiene que seleccionar un piso y un muro."}, status: :unprocessable_entity
 		end
 	end
 

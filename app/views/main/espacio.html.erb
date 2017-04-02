@@ -101,17 +101,20 @@
   </div><!--left-sidebar-->
 
   <div class="main-container">
+    <%= form_for(:product_pair, url: carrito_add_path, html: {id: 'piso_muro_form', format: 'json'}) do |f| %>
+      <%= f.submit("Agregar al carrito", class: 'btn') %>
 
-    <!--CARRUSEL MUROS -->
-    <div class="slick-carousel" id="muros_carousel">
-    </div>
-    <!-- CARRUSEL MUROS-->
+      <!--CARRUSEL MUROS -->
+      <div class="slick-carousel" id="muros_carousel">
+      </div>
+      <!-- CARRUSEL MUROS-->
 
-    <!-- CARRUSEL PISOS -->
-    <div class="slick-carousel" id="pisos_carousel">
-    </div>
-    <!--CARRUSEL PISOS -->
+      <!-- CARRUSEL PISOS -->
+      <div class="slick-carousel" id="pisos_carousel">
+      </div>
+      <!--CARRUSEL PISOS -->
 
+    <% end -%>
   </div><!--main container -->
 </div><!--fondo-->
 

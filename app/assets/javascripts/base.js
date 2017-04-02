@@ -30,6 +30,7 @@ $(".btn-floating").on("click", function(e){//funcion del boton ver
   $(".fav").removeClass("hide");
 })
 
+// Click en cada boton (categorias) del sidebar 
 $('a.category-link').on('click', function(e){
   e.preventDefault();
   var url = this.href;
@@ -76,5 +77,27 @@ $('a.category-link').on('click', function(e){
     $('a.category-link').toggleClass('disable_link');
       
   }); 
+});
 
+// Envio de formulario al carrito de pisos y muros gustados.
+$('form#piso_muro_form').on('submit', function(event){
+  event.preventDefault();
+  data = $(event.target).serialize();
+
+  $.ajax({
+    url: event.target.action,
+    data: data,
+    method: event.target.method,
+    beforeSend: function()
+    {
+    }
+  }).done(function(data, textStatus, jqXHR) {
+    // Aqui se debe agregar el par de productos gustados al carrito.
+
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    var error_json = jqXHR.responseJSON;
+    console.log(error_json.msg);
+  }).always(function(data, textStatus, errorThrown) {
+
+  });
 });

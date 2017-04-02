@@ -1,21 +1,26 @@
-<div class="col s4 m4">
-  <div class="card medium hoverable">
-    <div class="card-image">
-      <img class="img-responsive" src="<%= item.img_url %>">
-    </div>
-    <li class="divider"></li>
-    <div class="card-content">
-      <p>Descripcion:</p>
-      <p>Rendimiento por caja: <%= item.rend_caja %></p>
-      <p>Precio: <%= item.precio %></p>
+<%= fields_for(type) do |f| %>
+  <div class="col s4 m4">
+    <div class="card medium hoverable">
+      <div class="card-image">
+        <img class="img-responsive" src="<%= item.img_url %>">
+      </div>
+      <li class="divider"></li>
+      <div class="card-content">
+        <p>Descripcion:</p>
+        <p>Rendimiento por caja: <%= item.rend_caja %></p>
+        <p>Precio: <%= item.precio %></p>
 
-      <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
-        <i class="material-icons">visibility</i>
-      </a>
+        <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
+          <i class="material-icons">visibility</i>
+        </a>
+        
+        <%= f.radio_button(:sku, item.sku, id: type + '_' + index.to_s) %>
+        <%= f.label(:bla, '', for: type + '_' + index.to_s) %>
 
-      <a id="add" href="#!" class="btn-floating btn-small scale-transition fav hide right">
-        <i class="material-icons">favorite</i>
-      </a>
+        <a id="add" href="#!" class="btn-floating btn-small scale-transition fav right">
+          <i class="material-icons">favorite</i>
+        </a>
+      </div>
     </div>
   </div>
-</div>
+<% end -%>
