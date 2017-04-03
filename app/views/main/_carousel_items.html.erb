@@ -6,7 +6,7 @@
       </div>
       <li class="divider"></li>
       <div class="card-content">
-        <p>Descripcion:</p>
+        <p>Descripcion: <%= item.descripcion %></p>
         <p>Rendimiento por caja: <%= item.rend_caja %></p>
         <p>Precio: $<%= number_with_delimiter(item.precio, :delimiter => ',') %></p>
 

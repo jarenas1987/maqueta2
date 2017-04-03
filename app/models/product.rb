@@ -30,7 +30,7 @@ class Product
   end
 
   def descripcion=(new_descripcion)
-    @descripcion = new_descripcion.strip if new_descripcion.present?
+    @descripcion = new_descripcion.strip.split[0...6].join(" ") if new_descripcion.present?
   end
 
   def precio=(new_precio)
