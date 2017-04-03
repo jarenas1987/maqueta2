@@ -3,7 +3,7 @@ class Pdf < Prawn::Document
 
   # CONFIGURACION DE TEXTOS
   TEXT_CONFIG = {inline_format: true, align: :justify, size: 12, style: :normal}
-  TEXT_TITLE_CONFIG = {align: :justify, size: 18, style: :bold}
+  TEXT_TITLE_CONFIG = {align: :justify, valign: :center, size: 28, style: :bold}
   TEXT_SUBTITLE_CONFIG = {align: :justify, size: 16, style: :bold}
   NO_MESSAGE = "No hay datos suficientes para esta sección."
   TEXT_INDENT = 25
@@ -16,13 +16,16 @@ class Pdf < Prawn::Document
   def initialize()
     super( :margin => [0,0,0,0])
     @right_limit = bounds.right - INDENT_TYPE1
+
     # Agregar fuentes predeterminadas externas.
-    # font_families.update("Custom" => {
-    #   bold: Rails.root.join('app', 'assets', 'fonts', 'RobotoCondensed-Bold.ttf'),
-    #   bold_italic: Rails.root.join('app', 'assets', 'fonts', 'SourceSansPro-Italic.ttf'),
-    #   italic: Rails.root.join('app', 'assets', 'fonts', 'RobotoCondensed-LightItalic.ttf'),
-    #   normal: Rails.root.join('app', 'assets', 'fonts', 'SourceSansPro-Light.ttf')
-    #   })
+    font_families.update("Custom" => {
+      bold: Rails.root.join('app', 'assets', 'fonts', 'miso-bold.ttf'),
+    #   # bold_italic: Rails.root.join('app', 'assets', 'fonts', 'SourceSansPro-Italic.ttf'),
+    #   # italic: Rails.root.join('app', 'assets', 'fonts', 'RobotoCondensed-LightItalic.ttf'),
+      normal: Rails.root.join('app', 'assets', 'fonts', 'miso-light.ttf')
+      })
+
+    font "Custom"
 
     pisos_arr = [
       {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
@@ -51,17 +54,17 @@ class Pdf < Prawn::Document
         img_obj = image(open(SODIMAC_LOGO_PATH), height: HEADER_FOOTER_HEIGHT, position: :left)
       }
       indent(img_obj.scaled_width + 20) do 
-        text("Pisos & Muros", valign: :center)
+        text("Pisos & Muros", TEXT_TITLE_CONFIG)
       end
     end
   end
 
   def intro
     move_down 45
-    bounding_box([bounds.left, cursor], width: @right_limit, height: 80) do
+    bounding_box([bounds.left, cursor], width: @right_limit) do
       indent(INDENT_TYPE1) do
-        text("Estimado(a):")
-        text("Te enviamos un recordatorio de la experiencia vivida en de bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.", align: :justify)
+        text("Estimado cliente:", TEXT_CONFIG)
+        text("Te enviamos un recordatorio de la experiencia en Pisos & Muros en tu tienda Sodimac Favorita, estas fueron tus selecciones favoritas:", TEXT_CONFIG)
       end
     end
     move_down 20
@@ -126,8 +129,8 @@ class Pdf < Prawn::Document
   end
 
   def final
-    final_text = "Muchas gracias bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
-    final_text_height = height_of(final_text)
+    final_text = "Gracias por preferirnos!"
+    final_text_height = height_of(final_text, TEXT_CONFIG)
 
     indent(INDENT_TYPE1) do
       checkPageSkip(final_text_height, false, INDENT_TYPE1)
@@ -135,7 +138,7 @@ class Pdf < Prawn::Document
 
     bounding_box([bounds.left, cursor], width: @right_limit) do
       indent(INDENT_TYPE1) do
-        text(final_text, align: :justify)
+        text(final_text, TEXT_CONFIG)
       end
     end
   end

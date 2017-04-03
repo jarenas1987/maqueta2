@@ -3,6 +3,6 @@ namespace :prueab do
 	task :prueba => :environment do
 		pdf = Pdf.new()
     pdf.render_file(Rails.root.join('public', 'prueba.pdf'))
-		PdfMailer.pdf_email('criss.acv@gmail.com', Rails.root.join('public', 'prueba.pdf')).deliver
+		# PdfMailer.pdf_email('criss.acv@gmail.com', Rails.root.join('public', 'prueba.pdf')).deliver
 	end
 end
