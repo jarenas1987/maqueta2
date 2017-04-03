@@ -74,5 +74,34 @@ class API
 		end
 
 	end
+
+	def self.getFichaProductoBySku(sku, tipo)
+		if sku.present?
+			ficha_producto_api = JSON.parse(HTTP.get("http://api-car.azurewebsites.net/Products/CL/#{TIENDA_NUM}/#{sku}").to_s)
+
+			if ficha_producto_api.kind_of?(Array)
+				product_obj = Product.new(
+					nombre: ficha_producto_api[0]["name"],
+					sku: ficha_producto_api[0]["sku"],
+					img_url: ficha_producto_api[0]["multimedia"].first["url"],
+					descripcion: ficha_producto_api[0]["description"],
+					precio: ficha_producto_api[0]["price"]["normal"],
+					tipo: tipo,
+					rend_caja: '-'
+				)
+
+				if product_obj.valid?
+					return product_obj
+				else
+					return nil
+				end
+
+			else
+				return nil
+			end
+		else
+			return nil
+		end
+	end
 	
 end

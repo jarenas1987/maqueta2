@@ -1,5 +1,6 @@
 class Pdf < Prawn::Document
   require "open-uri"
+  include ActionView::Helpers::NumberHelper
 
   # CONFIGURACION DE TEXTOS
   TEXT_CONFIG = {inline_format: true, align: :justify, size: 14, style: :normal}
@@ -13,7 +14,7 @@ class Pdf < Prawn::Document
   SODIMAC_LOGO_PATH = Rails.root.join('app', 'assets', 'images', 'Sodimac_Homecenter_large.png')
   INDENT_TYPE1 = 55
 
-  def initialize()
+  def initialize(options = {})
     super( :margin => [0,0,0,0])
     @right_limit = bounds.right - INDENT_TYPE1
 
@@ -27,23 +28,23 @@ class Pdf < Prawn::Document
 
     font "Custom"
 
-    pisos_arr = [
-      {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
-      {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
-      {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
-    ]
+    # pisos_arr = [
+    #   {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
+    #   {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
+    #   {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
+    # ]
 
-    muros_arr = [
-      {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
-      {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
-      {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
-    ]
+    # muros_arr = [
+    #   {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
+    #   {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
+    #   {img: 'http://sodimac.scene7.com/is/image/SodimacCL/1862782', descripcion: "Esto es una descripcion.", precio: "$$$$$", sku: "2973561"},
+    # ]
 
     header
     footer
     intro
-    muros_y_pisos_section(pisos_arr, :pisos)
-    muros_y_pisos_section(muros_arr, :muros)
+    muros_y_pisos_section(options[:pisos], :pisos)
+    muros_y_pisos_section(options[:muros], :muros)
     final
   end
 
@@ -90,7 +91,7 @@ class Pdf < Prawn::Document
         bounding_box([bounds.left, cursor], width: @right_limit, height: bounding_height) do
           img_obj = nil
           float{
-            img_obj = image(open(d[:img]), height: bounding_height, position: :left, vposition: :center)
+            img_obj = image(open(d.img_url), height: bounding_height, position: :left, vposition: :center)
           }
 
           bounding_box([img_obj.scaled_width + 30, cursor - 10], width: bounds.width, height: bounding_height) do
@@ -109,9 +110,9 @@ class Pdf < Prawn::Document
               # sku_text = "SKU: "
               # height_text = height_of(sku_text)
               # text_box(sku_text, at: [0, cursor - height_text], width: bounds.width - (INDENT_TYPE1 + img_obj.scaled_width), align: :left,overflow: :shrink_to_fit, min_font_size: 3)
-              text("Descripción: #{d[:descripcion]}", TEXT_CONFIG)
-              text("Precio: #{d[:precio]}", TEXT_CONFIG)
-              text("SKU: #{d[:sku]}", TEXT_CONFIG)
+              text("Descripción: #{d.descripcion}", TEXT_CONFIG)
+              text("Precio: $ #{number_to_currency(d.precio, precision: 0)}", TEXT_CONFIG)
+              text("SKU: #{d.sku}", TEXT_CONFIG)
             end
           # end
         end

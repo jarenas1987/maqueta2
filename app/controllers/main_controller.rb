@@ -1,10 +1,11 @@
 class MainController < ApplicationController
-	around_filter :protect_request, only: [:products_by_category, :carrito_add]
+	around_filter :protect_request, only: [:products_by_category, :carrito_add, :carrito_send]
 	
 	CATEGORIES_TYPES = {
 		muro: 'muro',
 		piso: 'piso'
 	}
+	PDF_TEMP_FILE = Rails.root.join('public', 'prueba.pdf')
 
 	def index
 		render action: :index
@@ -67,9 +68,40 @@ class MainController < ApplicationController
 
 	def carrito_send
 		if !params[:items].nil?
-			# Enviar email con el pdf?...
+			if params[:email].present?
+				# Verificar el formato del email ingresado.
+				if params[:email] =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+					pdf_options = {pisos: [], muros: []}
 
-			render json: {}
+					# Recorrer los pisos y muros para obtener su ficha y asi poder generar el PDF.
+					params[:items].each do |item|
+						product_obj = API.getFichaProductoBySku(item[:sku], item[:tipo])
+						if !product_obj.nil?
+							if product_obj.tipo == :piso
+								pdf_options[:pisos] << product_obj
+							elsif product_obj.tipo == :muro
+								pdf_options[:muros] << product_obj
+							end
+						end
+					end
+
+					# Crear PDF.
+					pdf = Pdf.new(pdf_options)
+
+					# Guardar el archivo PDF en local.
+			    pdf.render_file(PDF_TEMP_FILE)
+
+			    # Enviar el email con el PDF.
+					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE).deliver
+
+					render json: {msg: "Email enviado a #{params[:email]} con el pdf generado exitosamente."}
+					
+				else
+					render json: {msg: "El formato del email ingresado no es válido."}, status: :unprocessable_entity
+				end
+			else
+				render json: {msg: "No hay email."}, status: :unprocessable_entity
+			end
 		else
 			render json: {msg: "El carrito de compras esta vacio."}, status: :unprocessable_entity
 		end
@@ -80,7 +112,6 @@ class MainController < ApplicationController
 		begin
 			yield
 		rescue StandardError => e
-			byebug
 			render json: {msg: "Ha ocurrido un error con el request."}, status: :unprocessable_entity
 		end
 	end	

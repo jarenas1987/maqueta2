@@ -110,7 +110,10 @@ $('a.category-link').on('click', function(e){
 // Envio de formulario del carrito de pisos y muros gustados.
 $('form#carrito_form').on('submit', function(event){
   event.preventDefault();
-  data = $(event.target).serialize();
+  data = $(event.target).serializeArray();
+  // Se agrega el parametro de email en los datos que enviara ajax.
+  // (POR HACER)Hay que obtener el email ingresado por el usuario en el modal...
+  data.push({name: "email", value: ''});
 
   $.ajax({
     url: event.target.action,
@@ -159,6 +162,10 @@ $('div.slick-carousel').on('click', 'a.shopping_cart', function(event){
 
 });
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 // Funcion que revisa si existe un par de productos gustados en el carrito antes de agregar un nuevo par para evitar duplicados.
 function addItemToCarrito(carrito_data)
 {
@@ -185,6 +192,6 @@ function addItemToCarrito(carrito_data)
     precio_total_carrito += carrito_data.precio_total_item;
 
     total_element.data('total', precio_total_carrito);
-    total_element.find('span').html("Total: $" + precio_total_carrito);
+    total_element.find('span').html("Total: $ " + numberWithCommas(precio_total_carrito));
   }
 }
