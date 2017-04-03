@@ -2,7 +2,9 @@ var slick_carousel = $('div.slick-carousel');
 var slick_carousel_config = {
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    edgeFriction: 0,
+    swipeToSlide: true
   };
 
 //dropdown menu
