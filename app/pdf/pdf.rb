@@ -2,7 +2,7 @@ class Pdf < Prawn::Document
   require "open-uri"
 
   # CONFIGURACION DE TEXTOS
-  TEXT_CONFIG = {inline_format: true, align: :justify, size: 12, style: :normal}
+  TEXT_CONFIG = {inline_format: true, align: :justify, size: 14, style: :normal}
   TEXT_TITLE_CONFIG = {align: :justify, valign: :center, size: 28, style: :bold}
   TEXT_SUBTITLE_CONFIG = {align: :justify, size: 16, style: :bold}
   NO_MESSAGE = "No hay datos suficientes para esta sección."
@@ -109,9 +109,9 @@ class Pdf < Prawn::Document
               # sku_text = "SKU: "
               # height_text = height_of(sku_text)
               # text_box(sku_text, at: [0, cursor - height_text], width: bounds.width - (INDENT_TYPE1 + img_obj.scaled_width), align: :left,overflow: :shrink_to_fit, min_font_size: 3)
-              text("Descripción: #{d[:descripcion]}")
-              text("Precio: #{d[:precio]}")
-              text("SKU: #{d[:sku]}")
+              text("Descripción: #{d[:descripcion]}", TEXT_CONFIG)
+              text("Precio: #{d[:precio]}", TEXT_CONFIG)
+              text("SKU: #{d[:sku]}", TEXT_CONFIG)
             end
           # end
         end
