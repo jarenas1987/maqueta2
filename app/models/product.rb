@@ -32,4 +32,8 @@ class Product
   def descripcion=(new_descripcion)
     @descripcion = new_descripcion.strip if new_descripcion.present?
   end
+
+  def precio=(new_precio)
+    @precio = new_precio.to_i
+  end
 end

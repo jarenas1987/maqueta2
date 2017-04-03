@@ -8,7 +8,7 @@
       <div class="card-content">
         <p>Descripcion:</p>
         <p>Rendimiento por caja: <%= item.rend_caja %></p>
-        <p>Precio: <%= item.precio %></p>
+        <p>Precio: $<%= number_with_delimiter(item.precio, :delimiter => ',') %></p>
 
         <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
           <i class="material-icons">visibility</i>
