@@ -1,4 +1,6 @@
 class MainController < ApplicationController
+	around_filter :protect_request, only: [:products_by_category, :carrito_add]
+	
 	CATEGORIES_TYPES = {
 		muro: 'muro',
 		piso: 'piso'
@@ -77,5 +79,14 @@ class MainController < ApplicationController
 			render json: {msg: "El carrito de compras esta vacio."}, status: :unprocessable_entity
 		end
 	end
+
+
+	def protect_request
+		begin
+			yield
+		rescue StandardError => e
+			render json: {msg: "Ha ocurrido un error con el request."}, status: :unprocessable_entity
+		end
+	end	
 
 end
