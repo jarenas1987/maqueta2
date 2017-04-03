@@ -26,13 +26,13 @@ class Carrito
   def calculateTotal
     total = 0
     @items.each do |item|
-      total = item.piso.precio.to_i + item.muro.precio.to_i
+      total = item.precio.to_i
     end
     @total = total
   end
 
   def items=(new_item)
-    @items << new_item if new_item.instance_of?(ProductPair)
+    @items << new_item if new_item.instance_of?(Product)
   end
 
 end

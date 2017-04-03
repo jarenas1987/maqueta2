@@ -83,29 +83,29 @@ $('a.category-link').on('click', function(e){
 });
 
 // Envio de formulario al carrito de pisos y muros gustados.
-$('form#piso_muro_form').on('submit', function(event){
-  event.preventDefault();
-  data = $(event.target).serialize();
+// $('form#piso_muro_form').on('submit', function(event){
+//   event.preventDefault();
+//   data = $(event.target).serialize();
 
-  $.ajax({
-    url: event.target.action,
-    data: data,
-    method: event.target.method,
-    beforeSend: function()
-    {
-    }
-  }).done(function(data, textStatus, jqXHR) {
-    // Aqui se debe agregar el par de productos gustados al carrito.
-    console.log(data);
-    addItemToCarrito(data);
+//   $.ajax({
+//     url: event.target.action,
+//     data: data,
+//     method: event.target.method,
+//     beforeSend: function()
+//     {
+//     }
+//   }).done(function(data, textStatus, jqXHR) {
+//     // Aqui se debe agregar el par de productos gustados al carrito.
+//     console.log(data);
+//     addItemToCarrito(data);
 
-  }).fail(function(jqXHR, textStatus, errorThrown) {
-    var error_json = jqXHR.responseJSON;
-    console.log(error_json.msg);
-  }).always(function(data, textStatus, errorThrown) {
+//   }).fail(function(jqXHR, textStatus, errorThrown) {
+//     var error_json = jqXHR.responseJSON;
+//     console.log(error_json.msg);
+//   }).always(function(data, textStatus, errorThrown) {
 
-  });
-});
+//   });
+// });
 
 // Envio de formulario del carrito de pisos y muros gustados.
 $('form#carrito_form').on('submit', function(event){
@@ -131,6 +131,34 @@ $('form#carrito_form').on('submit', function(event){
   });
 });
 
+// Evento de click en el carrito de cada elemento del carrusel.
+$('div.slick-carousel').on('click', 'a.shopping_cart', function(event){
+  event.preventDefault();
+  var url = this.href;
+  var data = $(this).parents('div.card-content').find('input').serialize();
+
+  $.ajax({
+    url: url,
+    data: data,
+    method: 'get',
+    beforeSend: function()
+    {
+    }
+  }).done(function(data, textStatus, jqXHR) {
+    // Aqui se debe agregar el par de productos gustados al carrito.
+    console.log(data);
+
+    addItemToCarrito(data);
+
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    var error_json = jqXHR.responseJSON;
+    console.log(error_json.msg);
+  }).always(function(data, textStatus, errorThrown) {
+
+  });
+
+});
+
 // Funcion que revisa si existe un par de productos gustados en el carrito antes de agregar un nuevo par para evitar duplicados.
 function addItemToCarrito(carrito_data)
 {
@@ -140,7 +168,7 @@ function addItemToCarrito(carrito_data)
 
   for (var i = 0; i < carrito_items.length; i++) {
     var data_set = carrito_items[i].dataset;
-    if (data_set.muroSku == carrito_data.muro_sku && data_set.pisoSku == carrito_data.piso_sku){
+    if (data_set.productSku == carrito_data.item_sku){
       add_item = false;
       break;
     }

@@ -20,12 +20,12 @@ class MainController < ApplicationController
 	def products_by_category
 		if params[:category_type].present?
 			if params[:category_id].present?
-				items = API.getProductsByCategory(categoria_id: params[:category_id])
+				items = API.getProductsByCategory(categoria_id: params[:category_id], category_type: params[:category_type])
 
 				if !items.nil?
 					html_item_arr = []
 					items.each_with_index do |item, index|
-						html_item_arr << render_to_string(partial: 'carousel_items', formats: [:html], layout: false, locals: {item: item, type: params[:category_type], index: index})
+						html_item_arr << render_to_string(partial: 'carousel_items', formats: [:html], layout: false, locals: {item: item, type: Product.new, index: index})
 					end
 
 					render json: {
@@ -49,24 +49,19 @@ class MainController < ApplicationController
 	end
 
 	def carrito_add
-		if !params[:piso].nil? && !params[:muro].nil? && !params[:muro][:sku].nil? && !params[:piso][:sku].nil?
+		if !params[:product].nil?
 			carrito_obj = Carrito.new
-			product_pair_obj = ProductPair.new(
-				piso: Product.new(params[:piso]),
-				muro: Product.new(params[:muro])
-			)
-			carrito_obj.items << product_pair_obj
+			product_obj = Product.new(params[:product])
+			carrito_obj.items << product_obj
 			carrito_obj.calculateTotal
 
 			render json: {
 				carrito_item: render_to_string(partial: 'carrito_form', formats: [:html], layout: false, locals: {carrito: carrito_obj}),
-				piso_sku: product_pair_obj.piso.sku,
-				muro_sku: product_pair_obj.muro.sku,
+				item_sku: product_obj.sku,
 				precio_total_item: carrito_obj.total
 			}
-
 		else
-			render json: {msg: "Tiene que seleccionar un muro y un piso."}, status: :unprocessable_entity
+			render json: {msg: "Hubo problemas en enviar los datos del producto al servidor"}, status: :unprocessable_entity
 		end
 	end
 
@@ -85,6 +80,7 @@ class MainController < ApplicationController
 		begin
 			yield
 		rescue StandardError => e
+			byebug
 			render json: {msg: "Ha ocurrido un error con el request."}, status: :unprocessable_entity
 		end
 	end	

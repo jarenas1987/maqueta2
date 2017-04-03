@@ -3,9 +3,9 @@ class Product
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio
+  attr_accessor :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio, :tipo
 
-  validates_presence_of :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio
+  validates_presence_of :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio, :tipo
 
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -35,5 +35,15 @@ class Product
 
   def precio=(new_precio)
     @precio = new_precio.to_i
+  end
+
+  def tipo=(new_tipo)
+    if new_tipo =~ /muro/i
+      @tipo = :muro
+    elsif new_tipo =~ /piso/i
+      @tipo = :piso
+    else
+      @tipo = nil
+    end
   end
 end

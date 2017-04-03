@@ -41,7 +41,8 @@ class API
 							sku: product["sku"],
 							img_url: product["multimedia"].first["url"],
 							descripcion: product["description"],
-							precio: product["price"]["normal"]
+							precio: product["price"]["normal"],
+							tipo: params[:category_type]
 							)
 
 						# Realizar llamado de la ficha tecnica del producto.
