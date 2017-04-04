@@ -162,6 +162,30 @@ $('div.slick-carousel').on('click', 'a.shopping_cart', function(event){
 
 });
 
+
+$('div.slick-carousel').on('click', 'a.set_background', function(event){
+  event.preventDefault();
+  var url = this.href;
+
+  $.ajax({
+    url: url,
+    method: 'get',
+    beforeSend: function()
+    {
+    }
+  }).done(function(data, textStatus, jqXHR) {
+    // Aqui se debe agregar el par de productos gustados al carrito.
+    console.log(data);
+
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    var error_json = jqXHR.responseJSON;
+    console.log(error_json.msg);
+  }).always(function(data, textStatus, errorThrown) {
+
+  });
+
+});
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

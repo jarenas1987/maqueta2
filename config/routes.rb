@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   scope '/espacio' do
     get '/', to: 'main#espacio', as: 'espacio'
     get '/products/(:category_type)/(:category_id)', to: 'main#products_by_category', as: 'products_by_category'
+    get '/set_background/(:category_type)/(:product_sku)', to: 'main#set_background', as: 'set_background'
     get '/carrito_add/(:product_sku)', to: 'main#carrito_add', as: 'carrito_add'
     post '/carrito_send', to: 'main#carrito_send', as: 'carito_send'
   end

@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-	around_filter :protect_request, only: [:products_by_category, :carrito_add, :carrito_send]
+	around_filter :protect_request, only: [:products_by_category, :carrito_add, :carrito_send, :set_background]
 	
 	CATEGORIES_TYPES = {
 		muro: 'muro',
@@ -104,6 +104,30 @@ class MainController < ApplicationController
 			end
 		else
 			render json: {msg: "El carrito de compras esta vacio."}, status: :unprocessable_entity
+		end
+	end
+
+	def set_background
+		if params[:category_type].present?
+			if params[:product_sku].present?
+				product_obj = API.getFichaProductoBySku(params[:product_sku], params[:category_type])
+
+				# Verificar que el objeto tenga la imagen a setear.
+				if product_obj.img_url.present?
+					# Correr el comando para setear la imagen.
+					res = system("wallpaper #{product_obj.img_url}")
+					
+					if res
+						render json: {msg: "Imagen de producto seteada exitosamente."}
+					else
+						render json: {msg: "Hubo un problema en setear la imagen."}, status: :unprocessable_entity
+					end
+				end
+			else
+				render json: {msg: "No llego el sku del producto al servidor."}, status: :unprocessable_entity
+			end
+		else
+			render json: {msg: "No llego el tipo de producto al servidor."}, status: :unprocessable_entity
 		end
 	end
 

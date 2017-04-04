@@ -10,7 +10,7 @@
         <p>Rendimiento por caja: <%= item.rend_caja %></p>
         <p>Precio: $<%= number_with_delimiter(item.precio, :delimiter => ',') %></p>
 
-        <a id="scale-demo" href="#!" class="btn-floating btn-small scale-transition ">
+        <a id="scale-demo" href="<%= set_background_path(item.tipo, item.sku) %>" class="btn-floating btn-small scale-transition set_background">
           <i class="material-icons">visibility</i>
         </a>
 
