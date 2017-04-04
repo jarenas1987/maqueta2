@@ -40,7 +40,7 @@ class API
 							nombre: product["name"],
 							sku: product["sku"],
 							img_url: product["multimedia"].first["url"],
-							descripcion: product["description"],
+							descripcion: getDescriptionFromApi(product),
 							precio: product["price"]["normal"],
 							tipo: params[:category_type]
 							)
@@ -84,7 +84,7 @@ class API
 					nombre: ficha_producto_api[0]["name"],
 					sku: ficha_producto_api[0]["sku"],
 					img_url: ficha_producto_api[0]["multimedia"].first["url"],
-					descripcion: ficha_producto_api[0]["description"],
+					descripcion: getDescriptionFromApi(ficha_producto_api[0]),
 					precio: ficha_producto_api[0]["price"]["normal"],
 					tipo: tipo,
 					rend_caja: '-'
@@ -102,6 +102,16 @@ class API
 		else
 			return nil
 		end
+	end
+
+	def self.getDescriptionFromApi(product_api_data)
+		description = nil
+		if product_api_data["name"].present?
+			description = product_api_data["name"]
+		elsif product_api_data["shortName"].present?
+			description = product_api_data["shortName"]
+		end
+		return description
 	end
 	
 end
