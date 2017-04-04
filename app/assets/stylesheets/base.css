@@ -11,17 +11,17 @@
 p{
   line-height: 150%;
   font-family: "miso";
-  font-size: 14px;
+  font-size: 16px;
 }
 h1 {
-font-family:"miso.eot";
+font-family:"miso";
 font-weight: bold;
 font-size: 56px;
 color: #000;
 margin-top: 180px;
 }
 h5{
-  font-family: "miso.eot";
+  font-family: "miso";
   font-weight: bold;
   font-size: 36px;
   color: #fff;
@@ -53,11 +53,8 @@ nav{
     background-image: url('mesamadera.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    width: auto;
-    background-position: center;
-    height:auto;
-
-
+    max-width: 2112px;
+    max-height:2112px;
 }
 .brand-logo img{
   width: 45px;
@@ -161,4 +158,7 @@ label.like-label > i{
 }
 input[type="radio"]:checked + label > i {
   color: red;
+}
+.container{
+
 }
