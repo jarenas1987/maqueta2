@@ -63,14 +63,13 @@ nav{
   margin-top: 5px;
 }
 .left-sidebar {
-  width: 300px;
+  width: 230px;
   height: auto;
   bottom: 0;
   position: absolute;
   left: 0;
-  background-color: #000;
-  opacity: 0.3;
-  filter: alpha(opacity=30);
+  background-color: #7e7e7e;
+
 }
 a {
   font-size: 14px;
