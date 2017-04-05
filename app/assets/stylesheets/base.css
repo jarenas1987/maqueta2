@@ -64,11 +64,11 @@ nav{
 }
 .left-sidebar {
   width: 230px;
-  height: auto;
+  height: 100%;
   bottom: 0;
   position: absolute;
   left: 0;
-  background-color: #7e7e7e;
+  background-color: rgba(0, 0, 0, 0.3);
 
 }
 a {
