@@ -160,3 +160,6 @@ label.like-label > i{
 input[type="radio"]:checked + label > i {
   color: red;
 }
+.slick-prev:before {
+  font-size: 30px;
+}
