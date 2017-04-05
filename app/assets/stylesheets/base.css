@@ -64,7 +64,7 @@ nav{
 }
 .left-sidebar {
   width: 230px;
-  height: 1080px;
+  height: auto;
   bottom: 0;
   position: absolute;
   left: 0;
