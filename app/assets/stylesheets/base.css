@@ -64,7 +64,8 @@ nav{
 }
 .left-sidebar {
   width: 230px;
-  height: auto;
+  height: 1080px;
+  top: 50px;
   bottom: 0;
   position: absolute;
   left: 0;
@@ -163,6 +164,10 @@ input[type="radio"]:checked + label > i {
 .slick-prev:before {
   font-size: 30px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 div.slick-slide > div.card{
   width: 60%;
 }
