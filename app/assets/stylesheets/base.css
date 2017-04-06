@@ -163,8 +163,6 @@ input[type="radio"]:checked + label > i {
 .slick-prev:before {
   font-size: 30px;
 }
-<<<<<<< HEAD
-=======
 div.slick-slide > div.card{
   width: 60%;
 }
