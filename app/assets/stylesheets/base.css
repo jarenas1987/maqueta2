@@ -35,9 +35,11 @@ h5{
   background-image: url("mt1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  width: auto;
+  width: 1600px;
   background-position: left;
   height:1024px;
+  overflow-x:hidden;
+  overflow-y:hidden;
 }
 /*--------------------------espacios---------------*/
 nav{
@@ -45,6 +47,10 @@ nav{
 }
 .dropdown-button{
   margin-right: 20px;
+}
+/*cambiar tamaño del dropdown list*/
+.dropown-content{
+  width: auto !important;
 }
 .car{
   color: #fff;

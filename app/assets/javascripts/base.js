@@ -5,6 +5,7 @@ var slick_carousel_config = {
     slidesToScroll: 1,
     edgeFriction: 0,
     swipeToSlide: true
+    respondTo: "window"
   };
 
 //dropdown menu
@@ -32,13 +33,13 @@ $(".btn-floating").on("click", function(e){//funcion del boton ver
   $(".fav").removeClass("hide");
 })
 
-// Click en cada boton (categorias) del sidebar 
+// Click en cada boton (categorias) del sidebar
 $('a.category-link').on('click', function(e){
   e.preventDefault();
   var url = this.href;
   var span = $(this).find('span');
   var error_json = null;
-  
+
   // Quitar nombre de clase a todos los span para dejarlos deseleccionados.
   $(this).parents('div.container').find('span').removeClass('text_link_selected');
   // Agregar clase al span para dejar seleccionado el link.
@@ -78,8 +79,8 @@ $('a.category-link').on('click', function(e){
   }).always(function(data, textStatus, errorThrown) {
     $('a.category-link').toggleClass('disable_link');
     console.log(error_json);
-      
-  }); 
+
+  });
 });
 
 // Envio de formulario al carrito de pisos y muros gustados.
