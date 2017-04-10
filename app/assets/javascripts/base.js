@@ -250,7 +250,7 @@ $(document).ready(function(){
 
           }).fail(function(jqXHR, textStatus, errorThrown) {
             var error_json = jqXHR.responseJSON;
-            console.log(error_json.msg);
+            console.log(error_json);
           }).always(function(data, textStatus, errorThrown) {
 
           });
