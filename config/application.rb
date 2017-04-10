@@ -26,9 +26,7 @@ module Maqueta2
     config.assets.paths << Rails.root.join('/app/assets/fonts')
 
     config.action_mailer.delivery_method = :mailgun
-    config.action_mailer.default_url_options = { 
-      :host => "localhost:3000"
-    }
+    
     config.action_mailer.mailgun_settings = {
             api_key: ENV['api_key'],
             domain: ENV['domain']
