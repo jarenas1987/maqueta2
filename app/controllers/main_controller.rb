@@ -92,7 +92,7 @@ class MainController < ApplicationController
 			    pdf.render_file(PDF_TEMP_FILE)
 
 			    # Enviar el email con el PDF.
-					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE).deliver
+					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE).deliver_later
 
 					render json: {msg: "Email enviado a #{params[:email]} con el pdf generado exitosamente."}
 					
