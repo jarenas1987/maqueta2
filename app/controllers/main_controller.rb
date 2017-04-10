@@ -136,6 +136,8 @@ class MainController < ApplicationController
 		begin
 			yield
 		rescue StandardError => e
+			puts e
+			puts e.backtrace
 			render json: {msg: "Ha ocurrido un error con el request."}, status: :unprocessable_entity
 		end
 	end	
