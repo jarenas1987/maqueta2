@@ -4,7 +4,7 @@ var slick_carousel_config = {
     slidesToShow: 3,
     slidesToScroll: 1,
     edgeFriction: 0,
-    swipeToSlide: true
+    swipeToSlide: true,
     respondTo: "window"
   };
 
@@ -111,10 +111,11 @@ $('a.category-link').on('click', function(e){
 // Envio de formulario del carrito de pisos y muros gustados.
 $('form#carrito_form').on('submit', function(event){
   event.preventDefault();
-  data = $(event.target).serializeArray();
+  data = $(event.target).serialize();
   // Se agrega el parametro de email en los datos que enviara ajax.
   // (POR HACER)Hay que obtener el email ingresado por el usuario en el modal...
-  data.push({name: "email", value: ''});
+  // data.push({name: "email", value: ''});
+  console.log(data);
 
   $.ajax({
     url: event.target.action,
@@ -223,6 +224,41 @@ function addItemToCarrito(carrito_data)
 //modal
 $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal').modal();
+  $('.modal').modal(
+    {
+      complete: function() {
+        var email = document.getElementById('email_modal').value;
+        document.getElementById('email_modal').value = "";
+
+        if (email.length !== 0) {
+          var form_element = document.getElementById('carrito_form');
+          data = $(form_element).serializeArray();
+
+          // Se agrega el parametro de email en los datos que enviara ajax.
+          data.push({name: "email", value: email});
+
+          $.ajax({
+            url: form_element.action,
+            data: data,
+            method: form_element.method,
+            beforeSend: function()
+            {
+            }
+          }).done(function(data, textStatus, jqXHR) {
+            // Aqui se debe agregar el par de productos gustados al carrito.
+            console.log(data);
+
+          }).fail(function(jqXHR, textStatus, errorThrown) {
+            var error_json = jqXHR.responseJSON;
+            console.log(error_json.msg);
+          }).always(function(data, textStatus, errorThrown) {
+
+          });
+          
+        }
+
+      }
+    }
+  );
 });
        

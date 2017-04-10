@@ -4,7 +4,7 @@ class Carrito
   extend ActiveModel::Naming
 
   attr_writer :items
-  attr_accessor :total
+  attr_accessor :total, :email
   validates_presence_of :items
 
   def initialize(attributes = {})

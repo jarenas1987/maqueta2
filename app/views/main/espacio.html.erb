@@ -1,32 +1,30 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   <%= form_for(carrito, url: carito_send_path, html: {id: 'carrito_form', format: :json}) do |f| %>
-    <div id="carrito_container">
+      <div id="carrito_container">
 
-    </div>
-    <li class="divider"></li>
-    <li data-total="<%= carrito.total %>" id="carrito-precio-total">
-      <span>Total: $<%= carrito.total %></span>
-    </li>
-    <li>
-      <%= f.submit("Enviar", class: 'btn') %>
-    </li>
+      </div>
+      <li class="divider"></li>
+      <li data-total="<%= carrito.total %>" id="carrito-precio-total">
+        <span>Total: $<%= carrito.total %></span>
+      </li>
+      <li>
+        <a class="waves-effect waves-light btn" href="#modal1">Enviar</a>
+      </li>      
   <% end -%>
 </ul>
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Ingresa tu correo </h4>
+    <div class="input-field col s12">
+      <input type="email", class="validate", placeholder="Email", id="email_modal">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <input type="button", class="modal-action modal-close waves-effect waves-green btn-flat", value="Enviar">
+  </div>
+</div>
 <!-- MODAL el trigger es el boton enviar -->
-<!--  Modal Structure
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Ingresa tu correo </h4>
-      <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enviar</a>
-    </div>
-  </div>-->
 
 <div class="navbar-fixed "><!--navbar-->
   <nav>
