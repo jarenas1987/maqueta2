@@ -254,11 +254,14 @@ $(document).ready(function(){
           }).always(function(data, textStatus, errorThrown) {
 
           });
-          
+
         }
 
       }
     }
   );
 });
-       
+// tool tip activator
+$(document).ready(function(){
+  $('.tooltipped').tooltip({delay: 50});
+});       
