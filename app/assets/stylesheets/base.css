@@ -51,6 +51,7 @@ nav{
 /*cambiar tamaño del dropdown list*/
 .dropown-content{
   width: 260px !important;
+  padding: 5px !important;
 }
 .car{
   color: #fff;
@@ -62,6 +63,7 @@ nav{
     width: 1920px !important;
     height:1080px !important;
     background-attachment: fixed;
+    overflow-x:hidden !important;
 }
 .brand-logo img{
   width: 45px;
@@ -88,6 +90,7 @@ a:hover  {
 font-size:26px;
 transition: all 0.3s ease;
 color: #E10024;
+font-weight: bold;
 }
 h5:hover {
 font-size: 40px;
@@ -146,7 +149,7 @@ span{
 }
 
 .text_link_selected{
-  font-weight: bold;
+  font-weight: bolder;
   color: black;
 }
 input[type="radio"]+label:before{
@@ -186,4 +189,11 @@ span#carrito-bagde{
 i.carrito-icon{
   margin-left: -17px;
   position: absolute;
+}
+/*cambiar color a los botones*/
+.waves-effect{
+  background-color: #006BB1 !important;
+}
+.btn-small{
+  background-color: #006BB1 !important;
 }
