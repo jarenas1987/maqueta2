@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-	around_filter :protect_request, only: [:products_by_category, :carrito_add, :set_background]
+	around_filter :protect_request, only: [:products_by_category, :carrito_add, :set_background, :carrito_send]
 	
 	CATEGORIES_TYPES = {
 		muro: 'muro',
@@ -88,14 +88,8 @@ class MainController < ApplicationController
 					# Crear PDF.
 					pdf = Pdf.new(pdf_options)
 
-					puts("ANTES | File: #{PDF_TEMP_FILE.to_s} exists: #{File.exists?(PDF_TEMP_FILE.to_s)}")
-
 					# Guardar el archivo PDF en local.
 			    pdf.render_file(PDF_TEMP_FILE.to_s)
-
-					puts("DESPUES | File: #{PDF_TEMP_FILE.to_s} exists: #{File.exists?(PDF_TEMP_FILE.to_s)}")
-
-					puts("META | email: #{params[:email]}")
 
 			    # Enviar el email con el PDF.
 					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE.to_s).deliver_later
