@@ -46,6 +46,7 @@ nav{
 }
 .dropdown-button{
   margin-right: 20px;
+  background-color: #E10024;
 }
 /*cambiar tamaño del dropdown list*/
 .dropown-content{
@@ -58,8 +59,8 @@ nav{
     background-image: url('mesamadera.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 1920px;
-    height:1080px;
+    width: 1920px !important;
+    height:1080px !important;
     background-attachment: fixed;
 }
 .brand-logo img{
@@ -86,12 +87,12 @@ a {
 a:hover  {
 font-size:26px;
 transition: all 0.3s ease;
-color: #1176BD;
+color: #E10024;
 }
 h5:hover {
 font-size: 40px;
 transition: all 0.3s ease;
-color: #1176BD;
+color: #E10024;
 }
 .main-container {
   height: 100%;
