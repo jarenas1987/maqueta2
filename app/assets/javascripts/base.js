@@ -8,7 +8,10 @@ var slick_carousel_config = {
     respondTo: "window"
   };
 var badge_element = document.getElementById('carrito-badge');
-var bagde_count = parseInt(badge_element.dataset.count);
+var bagde_count = 0
+if (badge_element != null)
+  bagde_count = parseInt(badge_element.dataset.count);
+var home_url = null;
 
 //dropdown menu
 $( document ).ready(function(){
@@ -88,31 +91,6 @@ $('a.category-link').on('click', function(e){
 
   });
 });
-
-// Envio de formulario al carrito de pisos y muros gustados.
-// $('form#piso_muro_form').on('submit', function(event){
-//   event.preventDefault();
-//   data = $(event.target).serialize();
-
-//   $.ajax({
-//     url: event.target.action,
-//     data: data,
-//     method: event.target.method,
-//     beforeSend: function()
-//     {
-//     }
-//   }).done(function(data, textStatus, jqXHR) {
-//     // Aqui se debe agregar el par de productos gustados al carrito.
-//     console.log(data);
-//     addItemToCarrito(data);
-
-//   }).fail(function(jqXHR, textStatus, errorThrown) {
-//     var error_json = jqXHR.responseJSON;
-//     console.log(error_json.msg);
-//   }).always(function(data, textStatus, errorThrown) {
-
-//   });
-// });
 
 // Envio de formulario del carrito de pisos y muros gustados.
 $('form#carrito_form').on('submit', function(event){
@@ -252,61 +230,75 @@ function updateBagde() {
     $(badge_element).addClass('hide');
 }
 
-//modal
-$(document).ready(function(){
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal').modal(
-    {
-      complete: function() {
-        var email = document.getElementById('email_modal').value;
-        document.getElementById('email_modal').value = "";
+function redirectToHome()
+{
+  if (home_url != null)
+    window.location = home_url;
+}
 
-        if (email.length !== 0) {
-          var form_element = document.getElementById('carrito_form');
-          data = $(form_element).serializeArray();
-
-          // Se agrega el parametro de email en los datos que enviara ajax.
-          data.push({name: "email", value: email});
-
-          $.ajax({
-            url: form_element.action,
-            data: data,
-            method: form_element.method,
-            beforeSend: function()
-            {
-            }
-          }).done(function(data, textStatus, jqXHR) {
-            // Aqui se debe agregar el par de productos gustados al carrito.
-            console.log(data);
-
-          }).fail(function(jqXHR, textStatus, errorThrown) {
-            var error_json = jqXHR.responseJSON;
-            console.log(error_json);
-          }).always(function(data, textStatus, errorThrown) {
-
-          });
-
-        }
-
-      }
-    }
-  );
-});
 // tool tip activator
 $(document).ready(function(){
   $('.tooltipped').tooltip({delay: 50});
-});
-$(document).ready(function() {
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal-trigger').modal({
-    dismissible:false
-  });
+
+  // Inicializar el modal2 para que se pueda abrir mediante JS.
+  $('#modal2').modal(
+    {
+      complete: function() {
+        redirectToHome();
+      }
+    });
+  $('#modal1').modal();
 });
 
-//$("#buttonModal1").click(function() {
-  //$('#modal1').modal('close');
-//});
+// Cerrar el modal1 al presionar el boton X.
+$('button#close-modal1').click(function(e){
+  $('#modal1').modal('close');
+});
 
-$("#buttonModal2").click(function() {
+// Cerrar el modal2 al presionar el boton X y redirigir al home.
+$('button#close-modal2').click(function(e){
   $('#modal2').modal('close');
+});
+
+// Evento de click en "Enviar" del primer modal.
+$("#buttonModal1").click(function(e) {
+  var email = document.getElementById('email_modal').value;
+  var button = $(this);
+
+  if (email.length !== 0) {
+    var form_element = document.getElementById('carrito_form');
+    data = $(form_element).serializeArray();
+
+    // Se agrega el parametro de email en los datos que enviara ajax.
+    data.push({name: "email", value: email});
+
+    $.ajax({
+      url: form_element.action,
+      data: data,
+      method: form_element.method,
+      beforeSend: function()
+      {
+        button.val('Enviando correo...');
+        button.prop('disabled', true);
+      }
+    }).done(function(data, textStatus, jqXHR) {
+      console.log(data);
+      document.getElementById('email_modal').value = "";
+      home_url = data.home_url;
+
+      // Cerrar modal del email.
+      $('#modal1').modal('close');
+
+      // Abrir modal de termino.
+      $('#modal2').modal('open');
+
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      var error_json = jqXHR.responseJSON;
+      console.log(error_json);
+    }).always(function(data, textStatus, errorThrown) {
+      button.val('Enviar');
+      button.prop('disabled', false);
+    });
+
+  }
 });
