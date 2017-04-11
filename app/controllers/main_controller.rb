@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-	around_filter :protect_request, only: [:products_by_category, :carrito_add, :set_background]
+	around_filter :protect_request, only: [:products_by_category, :carrito_add, :set_background, :carrito_send]
 	
 	CATEGORIES_TYPES = {
 		muro: 'muro',
