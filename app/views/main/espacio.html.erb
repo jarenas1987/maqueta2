@@ -10,7 +10,7 @@
       </li>
       <li>
         <a class="waves-effect waves-light btn" href="#modal1">Enviar</a>
-      </li>      
+      </li>
   <% end -%>
 </ul>
 <div id="modal1" class="modal">
@@ -21,10 +21,20 @@
     </div>
   </div>
   <div class="modal-footer">
-    <input type="button", class="modal-action modal-close waves-effect waves-green btn-flat", value="Enviar">
+    <input type="button", class="modal-action modal-close waves-effect waves-green btn-flat", value="Enviar" href="#modal2">
   </div>
 </div>
 <!-- MODAL el trigger es el boton enviar -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <h4>Su mensaje fue enviado</h4>
+    <h6>Gracias por preferirnos</h6>
+  </div>
+  <div class="modal-footer">
+    <input type="button", class="modal-action modal-close waves-effect waves-green btn-flat", value="Cerrar">
+  </div>
+</div><!--modal mensaje final el trigger es el boton enviar del modal 1-->
+
 
 <div class="navbar-fixed "><!--navbar-->
   <nav>
@@ -33,7 +43,7 @@
         <%= image_tag('logo.png') %>
       </a>
       <ul class="left">
-        <li><a class="dropdown-button btn-flat pulse" href="#!" data-activates="dropdown1"><i class="material-icons car">add_shopping_cart</i></a></li>
+        <li><a class="dropdown-button btn-flat btn tooltipped" href="#!" data-activates="dropdown1" data-position="right" data-delay="50" data-tooltip="Revise Su compra"><i class="material-icons car">add_shopping_cart</i></a></li>
       </ul>
     </div>
   </nav>
@@ -47,13 +57,13 @@
       <div class="row">
         <div class="col s4 m4 l4">
           <%= link_to(products_by_category_path(categories_types[:muro], 'scat358517'), class: 'category-link') do %>
-            <%= image_tag('papel.jpg', class: 'circle hoverable') %>
+            <%= image_tag('papel.jpg', class: 'circle hoverable' title: 'Elegir Papel') %>
             <span>Papel</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4">
           <%= link_to(products_by_category_path(categories_types[:muro], 'scat102690'), class: 'category-link') do %>
-            <%= image_tag('muros.jpg', class: 'circle hoverable', id: 'dos') %>
+            <%= image_tag('muros.jpg', class: 'circle hoverable', id: 'dos' title: 'Elegir Cerámicas') %>
             <span class="title">Ceramica</span>
           <% end -%>
         </div>
@@ -61,13 +71,13 @@
       <div class="row">
         <div class="col s4 m4 l4 segundo">
           <%= link_to(products_by_category_path(categories_types[:muro], 'scat963904'), class: 'category-link') do %>
-            <%= image_tag('living2.jpg', class: 'circle hoverable') %>
+            <%= image_tag('living2.jpg', class: 'circle hoverable' title: 'Elegir Pintura') %>
             <span>Pintura</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4 segundo">
           <%= link_to(products_by_category_path(categories_types[:muro], 'scat963248'), class: 'category-link') do %>
-            <%= image_tag('foto.jpg', class: 'circle hoverable', id: 'dos') %>
+            <%= image_tag('foto.jpg', class: 'circle hoverable', id: 'dos' title: 'Elegir Decomural') %>
             <span class="title">Decomural</span>
           <% end -%>
         </div>
@@ -79,13 +89,13 @@
       <div class="row">
         <div class="col s4 m4 l4">
           <%= link_to(products_by_category_path(categories_types[:piso], 'scat102690'), class: 'category-link') do %>
-            <%= image_tag('ceramica.jpg', class: 'circle hoverable') %>
+            <%= image_tag('ceramica.jpg', class: 'circle hoverable' title: 'Elegir Cerámica') %>
             <span>ceramica</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4">
           <%= link_to(products_by_category_path(categories_types[:piso], 'scat552404'), class: 'category-link') do %>
-            <%= image_tag('flotante.png', class: 'circle hoverable', id: 'dos') %>
+            <%= image_tag('flotante.png', class: 'circle hoverable', id: 'dos' title: 'Elegir Flotante') %>
             <span class="title">Flotante</span>
           <% end -%>
         </div>
@@ -93,13 +103,13 @@
       <div class="row">
         <div class="col s4 m4 l4 segundo">
           <%= link_to(products_by_category_path(categories_types[:piso], 'scat552357'), class: 'category-link') do %>
-            <%= image_tag('madera.jpg', class: 'circle hoverable') %>
+            <%= image_tag('madera.jpg', class: 'circle hoverable' title: 'Elegir Madera') %>
             <span>Madera</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4 segundo">
           <%= link_to(products_by_category_path(categories_types[:piso], 'scat991120'), class: 'category-link') do %>
-            <%= image_tag('porcelanato.jpg', class: 'circle hoverable', id: 'dos') %>
+            <%= image_tag('porcelanato.jpg', class: 'circle hoverable', id: 'dos' title: 'Elegir Porcelanato') %>
             <span class="title">Porcelanato</span>
           <% end -%>
         </div>
@@ -107,13 +117,13 @@
       <div class="row">
         <div class="col s4 m4 l4 segundo">
           <%= link_to(products_by_category_path(categories_types[:piso], 'cat2880013'), class: 'category-link') do %>
-            <%= image_tag('vinilico.jpg', class: 'circle hoverable') %>
+            <%= image_tag('vinilico.jpg', class: 'circle hoverable' title: 'Elegir Vinilico') %>
             <span>Vinilico</span>
           <% end -%>
         </div>
         <div class="col s4 m4 l4 segundo">
           <%= link_to(products_by_category_path(categories_types[:piso], 'scat880433'), class: 'category-link') do %>
-            <%= image_tag('pastelones.jpg', class: 'circle hoverable', id: 'dos') %>
+            <%= image_tag('pastelones.jpg', class: 'circle hoverable', id: 'dos' title: 'Elegir Exteriores') %>
             <span class="title">Exterior</span>
           <% end -%>
         </div>
