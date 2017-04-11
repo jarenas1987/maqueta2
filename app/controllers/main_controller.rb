@@ -89,7 +89,7 @@ class MainController < ApplicationController
 					pdf = Pdf.new(pdf_options)
 
 					# Guardar el archivo PDF en local.
-			    pdf.render_file(PDF_TEMP_FILE)
+			    pdf.render_file(PDF_TEMP_FILE.to_s)
 
 			    # Enviar el email con el PDF.
 					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE.to_s).deliver_later
