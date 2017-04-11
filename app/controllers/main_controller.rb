@@ -88,6 +88,8 @@ class MainController < ApplicationController
 					# Crear PDF.
 					pdf = Pdf.new(pdf_options)
 
+					puts(PDF_TEMP_FILE.to_s)
+
 					# Guardar el archivo PDF en local.
 			    pdf.render_file(PDF_TEMP_FILE.to_s)
 
