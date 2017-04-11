@@ -5,7 +5,7 @@ class MainController < ApplicationController
 		muro: 'muro',
 		piso: 'piso'
 	}
-	PDF_TEMP_FILE = Rails.root.join('public', 'prueba.pdf')
+	PDF_TEMP_FILE = Rails.root.join('tmp', 'prueba.pdf')
 
 	def index
 		render action: :index
@@ -92,7 +92,7 @@ class MainController < ApplicationController
 			    pdf.render_file(PDF_TEMP_FILE)
 
 			    # Enviar el email con el PDF.
-					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE).deliver_later
+					PdfMailer.pdf_email(params[:email], PDF_TEMP_FILE.to_s).deliver_later
 
 					render json: {msg: "Email enviado a #{params[:email]} con el pdf generado exitosamente."}
 					
