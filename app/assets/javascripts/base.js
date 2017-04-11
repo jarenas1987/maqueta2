@@ -272,10 +272,10 @@ $(document).ready(function() {
   });
 });
 
-$("#buttonModal1").click(function() {
-  $('#modal1').closeModal();
-});
+//$("#buttonModal1").click(function() {
+  //$('#modal1').modal('close');
+//});
 
 $("#buttonModal2").click(function() {
-  $('#modal2').closeModal();
+  $('#modal2').modal('close');
 });
