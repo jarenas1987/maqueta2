@@ -51,7 +51,9 @@ nav{
 /*cambiar tamaño del dropdown list*/
 .dropown-content{
   width: 260px !important;
+  margin: 5px !important;
   padding: 5px !important;
+  color: black !important;
 }
 .car{
   color: #fff;
@@ -132,6 +134,9 @@ span{
   font-size: 18px;
   margin-left: -10px;
   font-family: "miso"
+}
+.close{
+  float: right;
 }
 /*---------------------------------CARRUSEL-------------*/
 .card{
