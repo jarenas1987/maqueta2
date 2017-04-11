@@ -28,7 +28,7 @@ h5{
   margin-top: 80px;
 }
 .btn{
-  background-color: #1176BD;
+  background-color: #006BB1;
 }
 
 .back{
@@ -198,6 +198,7 @@ i.carrito-icon{
 /*cambiar color a los botones*/
 .waves-effect{
   background-color: #006BB1 !important;
+  color: #fff !important;
 }
 .btn-small{
   background-color: #006BB1 !important;
