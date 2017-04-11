@@ -45,7 +45,19 @@
         <%= image_tag('logo.png') %>
       </a>
       <ul class="left">
-        <li><a class="dropdown-button btn-flat" href="#!" data-activates="dropdown1"><i class="material-icons car">add_shopping_cart</i></a></li>
+        <li>
+          <a class="dropdown-button btn-flat tooltipped" href="#!" data-activates="dropdown1" data-delay="50" data-tooltip="Revise Su compra">
+            <i class="material-icons car carrito-icon">add_shopping_cart</i>
+            <span class="badge hide" data-count="0" id="carrito-badge" style="display: inline-block;
+  float: none !important;
+  margin-left: 15px !important;
+  line-height: 22px !important;
+  height: 20px !important;
+  background-color: white !important;
+  color: #E10024 !important;
+  border-radius: 14px !important;"></span>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

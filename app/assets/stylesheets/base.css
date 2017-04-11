@@ -173,3 +173,17 @@ input[type="radio"]:checked + label > i {
 div.slick-slide > div.card{
   width: 60%;
 }
+span#carrito-bagde{
+  display: inline-block !important;
+  float: none !important;
+  margin-left: 15px !important;
+  line-height: 22px !important;
+  height: 20px !important;
+  background-color: white !important;
+  color: #E10024 !important;
+  border-radius: 14px !important;
+}
+i.carrito-icon{
+  margin-left: -17px;
+  position: absolute;
+}

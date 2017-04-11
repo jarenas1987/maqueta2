@@ -7,6 +7,8 @@ var slick_carousel_config = {
     swipeToSlide: true,
     respondTo: "window"
   };
+var badge_element = document.getElementById('carrito-badge');
+var bagde_count = parseInt(badge_element.dataset.count);
 
 //dropdown menu
 $( document ).ready(function(){
@@ -23,6 +25,10 @@ $( document ).ready(function(){
 
   // Inicializar slick carrusel
   slick_carousel.slick(slick_carousel_config);
+});
+
+$('a.dropdown-button').on('click', function(e){
+  resetBadge();
 });
 
 $(document).ready(function(){
@@ -219,8 +225,33 @@ function addItemToCarrito(carrito_data)
 
     total_element.data('total', precio_total_carrito);
     total_element.find('span').html("Total: $ " + numberWithCommas(precio_total_carrito));
+
+    // Se actualiza el estado del badge.
+    updateBagde();
   }
 }
+
+function resetBadge() {
+  bagde_count = 0;
+  badge_element.dataset.count = bagde_count;
+  badge_element.innerHTML = "";
+
+  $(badge_element).addClass('hide');
+}
+
+function updateBagde() {
+  // Se suma +1 al contador del badge.
+  bagde_count += 1;
+  badge_element.dataset.count = bagde_count;
+  badge_element.innerHTML = "+" + bagde_count;
+
+  // Se hace visible el badge solo si el numero de items sin ver es distinto de 0.
+  if (bagde_count !== 0)
+    $(badge_element).removeClass('hide');
+  else
+    $(badge_element).addClass('hide');
+}
+
 //modal
 $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
