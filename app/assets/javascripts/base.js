@@ -302,3 +302,9 @@ $("#buttonModal1").click(function(e) {
 
   }
 });
+
+// Cambiar el estado de la rotacion del input hidden de rotar.
+$('div.slick-carousel').on('click', 'a.rotate_background', function(event){
+  event.preventDefault();
+  $(this).parents('div.card-content').find('input#product_rotar').val('true');
+});

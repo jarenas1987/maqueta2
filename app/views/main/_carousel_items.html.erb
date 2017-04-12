@@ -18,13 +18,14 @@
           <i class="material-icons">shopping_cart</i>
         </a>
 
-    <!--    <a href="<%= carrito_add_path(item.sku) %>" class="btn-floating btn-small scale-transition 3d_rotation">
+        <a href="#" class="btn-floating btn-small scale-transition 3d_rotation rotate_background">
           <i class="material-icons">3d_rotation</i>
-        </a>-->
+        </a>
 
         <%= f.hidden_field(:sku, value: item.sku) %>
         <%= f.hidden_field(:precio, value: item.precio) %>
         <%= f.hidden_field(:tipo, value: item.tipo) %>
+        <%= f.hidden_field(:rotar, value: item.rotar) %>
 
       </div>
     </div>

@@ -3,11 +3,12 @@ class Product
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio, :tipo
+  attr_accessor :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio, :tipo, :rotar
 
   validates_presence_of :nombre, :sku, :img_url, :descripcion, :rend_caja, :precio, :tipo
 
   def initialize(attributes = {})
+    @rotar = false
     attributes.each do |name, value|
       send("#{name}=", value)
     end
