@@ -25,11 +25,21 @@ module Maqueta2
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('/app/assets/fonts')
 
-    config.action_mailer.delivery_method = :mailgun
+    config.action_mailer.delivery_method = :smtp
     
-    config.action_mailer.mailgun_settings = {
-            api_key: ENV['api_key'],
-            domain: ENV['domain']
+    # config.action_mailer.mailgun_settings = {
+    #         api_key: ENV['api_key'],
+    #         domain: ENV['domain']
+    # }
+
+    ActionMailer::Base.smtp_settings = {
+      :port           => ENV['smtp_port'],
+      :address        => ENV['sendgrid_address'],
+      :user_name      => ENV['sendgrid_user_name'],
+      :password       => ENV['sendgrid_pass'],
+      :domain         => ENV['sendgrid_domain'],
+      :authentication => :plain,
+      :enable_starttls_auto => true
     }
   end
 end
