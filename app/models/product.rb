@@ -33,6 +33,10 @@ class Product
     @descripcion = new_descripcion.strip.split[0...6].join(" ") if new_descripcion.present?
   end
 
+  def rend_caja=(new_rend_caja)
+    @rend_caja = new_rend_caja.strip.split[0...6].join(" ") if new_rend_caja.present?
+  end
+
   def precio=(new_precio)
     @precio = new_precio.to_i
   end
