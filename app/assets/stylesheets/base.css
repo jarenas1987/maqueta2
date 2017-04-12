@@ -49,11 +49,21 @@ nav{
   background-color: #E10024;
 }
 /*cambiar tamaño del dropdown list*/
-.dropown-content{
+/*.dropown-content{
   width: 260px !important;
   margin: 5px !important;
   padding: 5px !important;
   color: black !important;
+}*/
+.dropdown-content:active{
+  white-space: nowrap;
+  position: absolute;
+  top: 55px;
+  left: 5px;
+  opacity: 1;
+  display:block;
+  padding-right: 30px;
+  
 }
 .car{
   color: #fff;
