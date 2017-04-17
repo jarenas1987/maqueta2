@@ -10,22 +10,21 @@
         <p>Rendimiento por caja: <%= item.rend_caja %></p>
         <p>Precio: $<%= number_with_delimiter(item.precio, :delimiter => ',') %></p>
 
-        <a id="scale-demo" href="<%= set_background_path(item.tipo, item.sku) %>" class="btn-floating btn-small scale-transition set_background">
+        <button class="btn-floating btn-small scale-transition set_background" data-img_url="<%= item.img_url %>">
           <i class="material-icons">visibility</i>
-        </a>
+        </button>
 
         <a href="<%= carrito_add_path(item.sku) %>" class="btn-floating btn-small scale-transition shopping_cart">
           <i class="material-icons">shopping_cart</i>
         </a>
 
-        <a href="#" class="btn-floating btn-small scale-transition 3d_rotation rotate_background">
+        <button class="btn-floating btn-small scale-transition 3d_rotation rotate_background" data-img_url="<%= item.img_url %>">
           <i class="material-icons">3d_rotation</i>
-        </a>
+        </button>
 
         <%= f.hidden_field(:sku, value: item.sku) %>
         <%= f.hidden_field(:precio, value: item.precio) %>
         <%= f.hidden_field(:tipo, value: item.tipo) %>
-        <%= f.hidden_field(:rotar, value: item.rotar) %>
 
       </div>
     </div>

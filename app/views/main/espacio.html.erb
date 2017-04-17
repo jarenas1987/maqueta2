@@ -156,6 +156,12 @@
       </div>
       <!--CARRUSEL PISOS -->
   </div><!--main container -->
+
+  <%= hidden_field_tag(:control_piso, :img_url,value: nil, id: 'piso_img_url') %>
+  <%= hidden_field_tag(:control_piso, :rotar, value: 0, id: 'piso_rotar') %>
+
+  <%= hidden_field_tag(:control_muro, :img_url,value: nil, id: 'muro_img_url') %>
+  <%= hidden_field_tag(:control_muro, :rotar, value: 0, id: 'muro_rotar') %>
 </div><!--fondo-->
 
 <footer></footer>

@@ -12,6 +12,7 @@ var bagde_count = 0
 if (badge_element != null)
   bagde_count = parseInt(badge_element.dataset.count);
 var home_url = null;
+var rotate_degrees = [0, 90];
 
 //dropdown menu
 $( document ).ready(function(){
@@ -303,8 +304,81 @@ $("#buttonModal1").click(function(e) {
   }
 });
 
-// Cambiar el estado de la rotacion del input hidden de rotar.
-$('div.slick-carousel').on('click', 'a.rotate_background', function(event){
-  event.preventDefault();
-  $(this).parents('div.card-content').find('input#product_rotar').val('true');
+// Evento de click en boton 'ver'
+$('div.slick-carousel').on('click', 'button.set_background', function(event){
+  var carousel_container = $(this).parents('div.slick-carousel').attr('id');
+  var img_url = this.dataset.img_url;
+  var hidden_el = null;
+  var rotar_hidden = null;
+
+  if (carousel_container === 'muros_carousel') {
+    // Setear los valores de los input hidden de muros.
+    hidden_el = document.getElementById('muro_img_url');
+    rotar_hidden = document.getElementById('muro_rotar');
+
+  }else if(carousel_container === 'pisos_carousel'){
+    // Setear los valores de los input hidden de pisos.
+    hidden_el = document.getElementById('piso_img_url');
+    rotar_hidden = document.getElementById('piso_rotar');
+
+  }
+
+  if (hidden_el !== null) {
+    // Volver a dejar en 0 el input de la rotacion solo si la imagen a setear es distinta al valor guardado en el input.
+    if (hidden_el.value != img_url)
+      rotar_hidden.value = rotate_degrees[0];
+
+    // Asignar el valor al input (url de la imagen).
+    hidden_el.value = img_url;
+
+    // Disparar evento onchange en el input.
+    $(hidden_el).trigger('change');
+    // var event = new Event('change');
+    // hidden_el.dispatchEvent(event);
+  }
+  
 });
+
+// Evento de click en boton 'rotar'
+$('div.slick-carousel').on('click', 'button.rotate_background', function(event){
+  var carousel_container = $(this).parents('div.slick-carousel').attr('id');
+  var hidden_el = null;
+
+  if (carousel_container === 'muros_carousel') {
+    // Setear los valores de los input hidden de muros.
+    hidden_el = document.getElementById('muro_rotar')
+
+  }else if(carousel_container === 'pisos_carousel'){
+    // Setear los valores de los input hidden de pisos.
+    hidden_el = document.getElementById('piso_rotar')
+
+  }
+
+  if (hidden_el !== null) {
+    $(hidden_el).trigger('change');
+    // var event = new Event('change');
+    // hidden_el.dispatchEvent(event);
+
+    setRotateDegrees(hidden_el);
+  }
+  
+});
+
+// Funcion para setear el valor de rotacion para los input hidden.
+// input: nodo input hidden del valor de la rotacion.
+function setRotateDegrees(input){
+  var degrees = input.value;
+  var new_degrees = null;
+  var index = rotate_degrees.indexOf(parseInt(degrees));
+
+  if (index !== -1) {
+    if (rotate_degrees[index + 1] === undefined)
+      new_degrees = rotate_degrees[0];
+    else
+      new_degrees = rotate_degrees[index + 1];
+  }else{
+    new_degrees = rotate_degrees[0];
+  }
+
+  input.value = new_degrees;
+}
