@@ -331,10 +331,8 @@ $('div.slick-carousel').on('click', 'button.set_background', function(event){
     // Asignar el valor al input (url de la imagen).
     hidden_el.value = img_url;
 
-    // Disparar evento onchange en el input.
-    $(hidden_el).trigger('change');
-    // var event = new Event('change');
-    // hidden_el.dispatchEvent(event);
+    // Disparar el evento de click en el boton.
+    hidden_el.click();
   }
   
 });
@@ -350,14 +348,13 @@ $('div.slick-carousel').on('click', 'button.rotate_background', function(event){
 
   }else if(carousel_container === 'pisos_carousel'){
     // Setear los valores de los input hidden de pisos.
-    hidden_el = document.getElementById('piso_rotar')
+    hidden_el = document.getElementById('piso_rotar');
 
   }
 
   if (hidden_el !== null) {
-    $(hidden_el).trigger('change');
-    // var event = new Event('change');
-    // hidden_el.dispatchEvent(event);
+     // Disparar el evento de click en el boton.
+    hidden_el.click();
 
     setRotateDegrees(hidden_el);
   }
